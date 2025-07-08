@@ -29,7 +29,7 @@ class UsuarioController extends Controller
         }
         else
         {
-            return response()->json(["codigo"=>"error"],404);
+            return response()->json(["codigo"=>"error", "ip"=>request()->headers->all()],404);
         }
     }
 }
