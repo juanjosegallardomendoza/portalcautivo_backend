@@ -22,6 +22,7 @@ class UsuarioController extends Controller
             $registro->usuario_id= $usuario->id;
             $registro->ip = request()->ip();
             $registro->duracion =  $duraciones[$request->duracion];
+            $registro->actividad =  $request->actividad;
             $registro->save();
 
             
@@ -29,7 +30,7 @@ class UsuarioController extends Controller
         }
         else
         {
-            return response()->json(["codigo"=>"error", "ip"=>request()->headers->all()],404);
+            return response()->json(["codigo"=>"error", "ip"=>request()->server->all()],404);
         }
     }
 }
