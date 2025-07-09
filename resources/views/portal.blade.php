@@ -219,7 +219,7 @@
             }
             else
             {
-                document.getElementById("ft_un").value =document.getElementById("duracion").value;
+                document.getElementById("ft_un").value =duracion;
                 document.getElementById("ft_pd").value=data.codigo;
             }
 
