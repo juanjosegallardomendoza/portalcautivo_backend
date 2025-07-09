@@ -11,9 +11,10 @@
 
         <tr>
             <td>{{ $registro->created_at }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ $registro->usuario->nombre }}</td>
+            <td>{{ $registro->actividad }}</td>
+            <td>{{ $registro->ip }}</td>
+            <td>{{ $registro->usuario->tipo }}</td>
             <td></td>
         </tr>
                 
