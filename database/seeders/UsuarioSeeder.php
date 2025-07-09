@@ -13,7 +13,7 @@ class UsuarioSeeder extends Seeder
         DB::table('usuarios')->insert([
             'nombre' => 'Juan',
             'usuario' => 'juanjo',
-            'tipo' => 'admin', // o cualquier valor que se use en tu sistema
+            'tipo' => 'ADMINISTRATIVO', // o cualquier valor que se use en tu sistema
             'password' =>"12345",
             'created_at' => now(),
             'updated_at' => now(),

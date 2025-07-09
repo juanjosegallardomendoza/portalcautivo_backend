@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->string("ip");
             $table->integer("duracion");
+            $table->string("actividad");
             $table->timestamps();
         });
     }

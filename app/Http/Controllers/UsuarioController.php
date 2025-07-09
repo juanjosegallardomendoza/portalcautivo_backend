@@ -10,6 +10,11 @@ class UsuarioController extends Controller
 {
     public function login(Request $request)
     {
+
+        if($request->actividad =="")
+        {
+             return response()->json(["codigo"=>"error", "message"=>"Especifica la actividad" ],400);
+        }
         $usuario = Usuario::where("usuario", $request->usuario)
             ->where("password", $request->password)->first();
  
@@ -30,7 +35,7 @@ class UsuarioController extends Controller
         }
         else
         {
-            return response()->json(["codigo"=>"error", "ip"=>request()->server->all()],404);
+            return response()->json(["codigo"=>"error", "message"=>"Usuario o password incorrectos" ],404);
         }
     }
 }
