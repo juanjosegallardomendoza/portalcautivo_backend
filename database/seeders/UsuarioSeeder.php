@@ -12,7 +12,7 @@ class UsuarioSeeder extends Seeder
     {
         DB::table('usuarios')->insert([
 
-            	[ 'nombre' => 'Pedro', 'usuario' => 'GAMJ841','tipo' => 'ALUMNO', 'password' =>"fecha ",'created_at' => now(),'updated_at' => now(),],
+            	[ 'nombre' => 'Pedro', 'usuario' => 'juanjo','tipo' => 'ALUMNO', 'password' =>"12345",'created_at' => now(),'updated_at' => now(),],
 
 	[ 'nombre' => 'Juan', 'usuario' => 'GAMJ841',
             'tipo' => 'ALUMNO', // o cualquier valor que se use en tu sistema
