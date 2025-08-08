@@ -157,6 +157,7 @@
               Usuario:
             </label>
             <input id="ft_usuario" type="text" autocorrect="off" autocapitalize="off">
+            <a>buscar</a>
           </div>
           
           

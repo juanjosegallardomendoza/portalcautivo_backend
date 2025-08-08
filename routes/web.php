@@ -13,5 +13,10 @@ Route::get('/test', function () {
     return view('portal');
 });
 
+Route::get('/busqueda', function () {
+    return view('busqueda');
+});
+
+
 
 Route::get("reporte",[RegistroController::class, "generarReporte"]);
