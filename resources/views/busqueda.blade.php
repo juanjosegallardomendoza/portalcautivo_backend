@@ -20,7 +20,7 @@
     function abrir( item )
     {
         const data = JSON.parse(item.dataset.item);
-        document.getElementById(`div_${data.id}`).innerHTML = `<br>usuario: <input type="text" value="${data.usuario}"><br> <br>`;
+        document.getElementById(`div_${data.id}`).innerHTML = `<br>usuario: ${data.usuario}<br> <br>`;
     }
     fromEvent(txt_busqueda, "keyup").pipe(
         map(event => event.target.value.trim()),          // obtenemos el texto
