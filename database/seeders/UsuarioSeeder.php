@@ -11,12 +11,18 @@ class UsuarioSeeder extends Seeder
     public function run(): void
     {
         DB::table('usuarios')->insert([
-            'nombre' => 'Juan',
-            'usuario' => 'juanjo',
-            'tipo' => 'ADMINISTRATIVO', // o cualquier valor que se use en tu sistema
-            'password' =>"12345",
+
+            	[ 'nombre' => 'Pedro', 'usuario' => 'GAMJ841','tipo' => 'ALUMNO', 'password' =>"fecha ",'created_at' => now(),'updated_at' => now(),],
+
+	[ 'nombre' => 'Juan', 'usuario' => 'GAMJ841',
+            'tipo' => 'ALUMNO', // o cualquier valor que se use en tu sistema
+            'password' =>"fecha ",
             'created_at' => now(),
             'updated_at' => now(),
+        ],
+
+
+
         ]);
     }
 }

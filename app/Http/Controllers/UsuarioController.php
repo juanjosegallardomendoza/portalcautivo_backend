@@ -8,6 +8,15 @@ use App\Models\Registro;
 
 class UsuarioController extends Controller
 {
+
+
+    public function index(Request $request)
+    {
+        $busqueda = $request->busqueda;
+        return Usuario::orderBy("nombre")->where("nombre", "like",  "%{$busqueda}%")->get();
+
+    }
+
     public function login(Request $request)
     {
 
