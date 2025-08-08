@@ -157,7 +157,7 @@
               Usuario:
             </label>
             <input id="ft_usuario" type="text" autocorrect="off" autocapitalize="off">
-            <a target="_blank" href="http://10.10.10.10/busqueda">buscar</a>
+            <a target="_blank" href="http://10.10.10.10:8000/busqueda">buscar</a>
           </div>
           
           
