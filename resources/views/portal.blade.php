@@ -157,7 +157,7 @@
               Usuario:
             </label>
             <input id="ft_usuario" type="text" autocorrect="off" autocapitalize="off">
-            <a>buscar</a>
+            <a target="_blank" href="http://10.10.10.10/busqueda">buscar</a>
           </div>
           
           
@@ -210,7 +210,7 @@
             }
             return data;
         }
-                                                     )
+        )
         .then(data => {
 
             if(isNaN(usuario))
