@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Buscar Datos Alumnos</title>
+    
 </head>
 <body>
     Buscar: <input type="text" id="txt_busqueda""><br><br>
@@ -217,7 +218,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
     function abrir( item )
     {
         const data = JSON.parse(item.dataset.item);
-        document.getElementById(`div_${data.id}`).innerHTML = `<br>usuario: ${data.usuario}<br> <br>`;
+        document.getElementById(`div_${data.id}`).innerHTML = `<br><div style="user-select: text;">usuario: ${data.usuario}<br></div> <br>`;
     }
     fromEvent(txt_busqueda, "keyup").pipe(
         map(event => event.target.value.trim()),          // obtenemos el texto
