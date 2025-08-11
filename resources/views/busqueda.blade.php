@@ -5,12 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Buscar Datos Alumnos</title>
-    
+    <style>
+        html, body
+        {
+
+            height:100%;
+            padding:0;
+            margin:0;
+            font-family:helvetica,sans-serif;
+
+        }
+
+        #busqueda
+        {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            
+        }
+
+        #txt_busqueda
+        {
+            font-size: 16px;
+        }
+        
+        #resultado
+        {
+            margin: 10px ;
+        }
+    </style>    
 </head>
 <body>
-    Buscar: <input type="text" id="txt_busqueda""><br><br>
-    <div id="resultado"></div>
+    <div id="busqueda"> 
+        <div>Buscar: &nbsp;</div> 
+        <div><input type="text" id="txt_busqueda""></div>
+    </div>
+    <div id="resultado">
+    </div>
 </body>
+
 <script >
 
     /**
@@ -233,7 +268,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
     function abrir( item )
     {
         const data = JSON.parse(item.dataset.item);
-        document.getElementById(`div_${data.id}`).innerHTML = `<br><div style="user-select: text;">usuario: ${data.usuario}<br></div> <br>`;
+        document.getElementById(`div_${data.id}`).innerHTML = `<br><div style="user-select: text; margin-left:10px; ">usuario: ${data.usuario} <br></div> <br>`;
     }
 
     function cerrar( item )
@@ -263,7 +298,14 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
 
             // Mostramos los resultados
             resultado.innerHTML = data
-                .map(item => `<div><div  data-item='${JSON.stringify(item)}' style="cursor:pointer" onclick="toggle(this)"><strong>${item.nombre}</strong></div><div id="div_${item.id}"></div></div><hr>`)
+                .map(item => `
+                            <div>
+                                <div  data-item='${JSON.stringify(item)}' style="cursor:pointer" onclick="toggle(this)">
+                                    <strong>${item.nombre}</strong>
+                                </div>
+                                <div id="div_${item.id}">
+                                </div>
+                            </div><hr>`)
                 .join("");
         });
 
