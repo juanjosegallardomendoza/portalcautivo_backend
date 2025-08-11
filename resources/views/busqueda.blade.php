@@ -303,8 +303,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
                                 <div  data-item='${JSON.stringify(item)}' style="cursor:pointer" onclick="toggle(this)">
                                     <strong>${item.nombre}</strong>
                                 </div>
-                                <div id="div_${item.id}">
-                                </div>
+                                <div id="div_${item.id}"></div>
                             </div><hr>`)
                 .join("");
         });
