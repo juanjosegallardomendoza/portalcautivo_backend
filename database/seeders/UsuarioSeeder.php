@@ -12,6 +12,12 @@ class UsuarioSeeder extends Seeder
     {
         DB::table('usuarios')->insert([
 
+        [ 'nombre' => 'JUAN JOSÉ GALLARDO MENDOZA', 'usuario' => 'juanjo',
+            'tipo' => 'ADMINISTRATIVO', // o cualquier valor que se use en tu sistema
+            'password' =>"12345",
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
         [ 'nombre' => 'ACOSTA SARABIA ANGEL OMAR', 'usuario' => 'AOSA100720HGTCRNA1',
             'tipo' => 'ALUMNO', // o cualquier valor que se use en tu sistema
             'password' =>"20072010",
