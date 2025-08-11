@@ -214,14 +214,36 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
     const { debounceTime, map, distinctUntilChanged, switchMap } = rxjs.operators;
 
 
+    function toggle(item)
+    {
+        
+        const data = JSON.parse(item.dataset.item);
+        console.log(document.getElementById(`div_${data.id}`).innerHTML);
+        if(document.getElementById(`div_${data.id}`).innerHTML == '')
+        {
+            abrir(item);
+        }
+        else
+        {
+            cerrar(item);
+        }
+    }
+
     function abrir( item )
     {
         const data = JSON.parse(item.dataset.item);
         document.getElementById(`div_${data.id}`).innerHTML = `<br>usuario: ${data.usuario}<br> <br>`;
     }
+
+    function cerrar( item )
+    {
+     
+        const data = JSON.parse(item.dataset.item);
+        document.getElementById(`div_${data.id}`).innerHTML = ``;
+    }
     fromEvent(txt_busqueda, "keyup").pipe(
-        map(event => event.target.value.trim()),          // obtenemos el texto
-        debounceTime(700),                                // esperamos 500ms sin teclear
+        map(event => event.target.value.trim()),          
+        debounceTime(700),                                
         distinctUntilChanged(),  
         filter(texto=> texto.length >3),                        // solo si cambió el valor
         switchMap(texto => {
@@ -240,7 +262,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
 
             // Mostramos los resultados
             resultado.innerHTML = data
-                .map(item => `<div data-item='${JSON.stringify(item)}' style="cursor:pointer" onclick="abrir(this)"><strong>${item.nombre}</strong><div id="div_${item.id}"></div></div><hr>`)
+                .map(item => `<div><div  data-item='${JSON.stringify(item)}' style="cursor:pointer" onclick="toggle(this)"><strong>${item.nombre}</strong></div><div id="div_${item.id}"></div></div><hr>`)
                 .join("");
         });
 
