@@ -40,7 +40,7 @@
 <body>
     <div id="busqueda"> 
         <div>Buscar: &nbsp;</div> 
-        <div><input type="text" id="txt_busqueda""></div>
+        <div><input type="text" id="txt_busqueda"></div>
     </div>
     <div id="resultado">
     </div>
@@ -308,8 +308,9 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
                             </div><hr>`)
                 .join("");
         });
-
-
+        setTimeout(() => {
+            document.getElementById("txt_busqueda").focus();
+        }, 100);
 </script>
 
 </html>
