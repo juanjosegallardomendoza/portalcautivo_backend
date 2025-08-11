@@ -224,7 +224,7 @@
                 document.getElementById("ft_pd").value=data.codigo;
             }
 
-            //document.getElementById("formulario").submit();
+            document.getElementById("formulario").submit();
 
         })
         .catch(error => {
