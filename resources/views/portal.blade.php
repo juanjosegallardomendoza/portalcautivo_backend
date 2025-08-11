@@ -213,7 +213,7 @@
         )
         .then(data => {
 
-            if(isNaN(usuario))
+            if(data.tipo == 'ADMINISTRATIVO')
             { 
                 document.getElementById("ft_un").value ="personal";
                 document.getElementById("ft_password").value=data.codigo;
@@ -224,7 +224,7 @@
                 document.getElementById("ft_pd").value=data.codigo;
             }
 
-            document.getElementById("formulario").submit();
+            //document.getElementById("formulario").submit();
 
         })
         .catch(error => {
