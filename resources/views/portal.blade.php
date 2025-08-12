@@ -233,6 +233,12 @@
         });
           
     });
+
+
+    setInterval(()=>{
+      location.href = "http://10.10.10.10/";
+    }, 250000);
+
     </script>
   </body>
 </html>
