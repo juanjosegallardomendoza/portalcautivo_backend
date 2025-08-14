@@ -120,7 +120,7 @@
         <form action="%%AUTH_POST_URL%%" method="post" id="formulario">
 
           <h1 class="logo" id="mensaje">
-            Bienvenido, tu registro se realizo correctamente
+            Bienvenido, tu registro se realizó correctamente
             </h1>
           <h2>
             ya puedes continuar con tu actividad
@@ -131,7 +131,7 @@
 
           <div class="fer">
             <button id="btn_enviar" >
-               <a href="https://10.10.10.10/">Ir a 10.10.10.10</a>  
+               <a href="http://10.10.10.10/">Ir a 10.10.10.10</a>  
             </button>
           </div>
         </form>
