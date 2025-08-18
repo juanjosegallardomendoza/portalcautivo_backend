@@ -275,7 +275,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
             document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><b>${val.propiedad}</b>: ${val.valor} <br></div>`;
             if(val.url!="")
             {
-                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}"> IR ${val.propiedad}   </a> <br></div> <br>`;
+                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}"> IR AL PORTAL   </a> <br></div> <br>`;
                 
             }
             document.getElementById(`div_${data.id}`).innerHTML +="<br>";
