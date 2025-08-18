@@ -13,6 +13,10 @@ Route::get('/test', function () {
     return view('portal');
 });
 
+Route::get('/success', function () {
+    return view('bienvenido');
+});
+
 Route::get('/busqueda', function () {
     return view('busqueda');
 });
