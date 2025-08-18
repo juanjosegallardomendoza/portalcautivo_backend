@@ -246,7 +246,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
 </script>
 <script>
 
-    const { fromEvent, filter } = rxjs;
+    const { fromEvent, filter, from } = rxjs;
     const { debounceTime, map, distinctUntilChanged, switchMap } = rxjs.operators;
 
 
@@ -269,6 +269,12 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
     {
         const data = JSON.parse(item.dataset.item);
         document.getElementById(`div_${data.id}`).innerHTML = `<br><div style="user-select: text; margin-left:10px; ">usuario: ${data.usuario} <br></div> <br>`;
+        let propiedades$  = from(data.datos);
+
+        propiedades$.subscribe(val=>{
+            document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><b>${val.propiedad}</b>: ${val.valor} <br></div> <br>`;
+            console.log(val); 
+        });
     }
 
     function cerrar( item )
