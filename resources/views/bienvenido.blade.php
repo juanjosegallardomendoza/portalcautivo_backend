@@ -18,7 +18,7 @@
         vertical-align:middle;
         height:100%;
       }
-      form{
+      div.form{
         display:block;
         background:#FFF;
         border:2px solid #234176;
@@ -102,7 +102,6 @@
         border-color: white;
         
       }
-
       a
       {
         color: white !important;
@@ -117,21 +116,22 @@
   <body>
     <div class="oc">
       <div class="ic">
-        <form action="%%AUTH_POST_URL%%" method="post" id="formulario">
-
+        <div class="form" action="%%AUTH_POST_URL%%" method="post" id="formulario">
           <h1 class="logo" id="mensaje">
             Bienvenido, tu registro se realizó correctamente
-            </h1>
+          </h1>
           <h2>
             ya puedes continuar con tu actividad
           </h2>
           
-     
           
-
+          
           <div class="fer">
             <button id="btn_enviar" >
-               <a href="http://10.10.10.10/">Ir a 10.10.10.10</a>  
+              <a href="http://10.10.10.10/">
+                Ir a 10.10.10.10
+              </a>
+              
             </button>
           </div>
         </form>
@@ -140,4 +140,4 @@
     </div>
     
   </body>
-</html>
+</html> 
