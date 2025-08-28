@@ -14,14 +14,14 @@ class UsuarioController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        return Usuario::orderBy("nombre")->where("nombre", "=",  "%{$busqueda}%")->with("datos")->get();
+        return Usuario::orderBy("nombre")->where("nombre", "like",  "%{$busqueda}%")->with("datos")->get();
 
     }
 
     public function logout(Request $request)
     {
-
-        $registros = \App\Models\Registro::where('usuario_id', $usuario->id)
+/*
+        $registros = Registro::where('usuario_id', $usuario->id)
             ->where('ended_at', '>', $now)
             ->where("created_at", "<", $now)
             ->where("ip" , "=" , $usuario-> ip )
@@ -34,7 +34,7 @@ class UsuarioController extends Controller
                 'duration' => $duracion,
                 'ended_at' => $now,
             ]);
-        }
+        }*/
     }
 
     public function login(Request $request)

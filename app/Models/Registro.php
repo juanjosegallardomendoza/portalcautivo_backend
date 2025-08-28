@@ -14,6 +14,8 @@ class Registro extends Model
         'updated_at' => 'datetime',
         'ended_at'   => 'datetime',
         ];
+
+        
     public function usuario()
     {
      return $this->belongsTo(Usuario::class);
@@ -22,11 +24,10 @@ class Registro extends Model
     protected static function booted()
     {
         static::creating(function ($registro) {
-            $endedAt = Carbon::parse($registro->created_at)->addMinutes($registro->duration);
+            $endedAt = Carbon::parse($registro->created_at)->addMinutes($registro->duracion);
 
-         
-            $existe = Registro::where('created_at', '<=', $registro->created_at)
-                ->where('ended_at', '>=', $registro->created_at)
+           $existe = Registro::where('created_at', '<=',  Carbon::parse($registro->created_at))
+                ->where('ended_at', '>=', Carbon::parse($registro->created_at))
                 ->where("usuario_id", "like", $registro->usuario_id)
                 ->where("ip", "like", $registro->ip)
                 ->exists();
