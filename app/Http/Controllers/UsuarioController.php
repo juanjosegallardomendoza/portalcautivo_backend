@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Registro;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -17,6 +18,25 @@ class UsuarioController extends Controller
 
     }
 
+    public function logout(Request $request)
+    {
+
+        $registros = \App\Models\Registro::where('usuario_id', $usuario->id)
+            ->where('ended_at', '>', $now)
+            ->where("created_at", "<", $now)
+            ->where("ip" , "=" , $usuario-> ip )
+            ->get();
+
+        foreach ($registros as $registro) {
+            $duracion = $registro->created_at->diffInMinutes($now);
+
+            $registro->update([
+                'duration' => $duracion,
+                'ended_at' => $now,
+            ]);
+        }
+    }
+
     public function login(Request $request)
     {
 
@@ -24,11 +44,15 @@ class UsuarioController extends Controller
         {
              return response()->json(["codigo"=>"error", "message"=>"Especifica la actividad" ],400);
         }
+
+    
         $usuario = Usuario::where("usuario", $request->usuario)
             ->where("password", $request->password)->first();
- 
+
         if($usuario)
         {
+
+
             $usuario->codigo = "cecyteg";
             $duraciones = ["alumno_50"=>50, "alumno_100"=>100, "alumno_150"=>150];
 

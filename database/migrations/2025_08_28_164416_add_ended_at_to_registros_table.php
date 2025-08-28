@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::table('registros', function (Blueprint $table) {
             $table->date("ended_at");
         });
+
     }
 
     /**
@@ -26,8 +27,5 @@ return new class extends Migration
             $table->dropColumn("ended_at");
         });
         
-        DB::table('registros')->update([
-            'ended_at' => DB::raw("DATE_ADD(created_at, INTERVAL duration MINUTE)")
-        ]);
     }
 };

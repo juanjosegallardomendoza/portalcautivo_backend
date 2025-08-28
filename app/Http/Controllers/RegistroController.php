@@ -13,5 +13,10 @@ class RegistroController extends Controller
         $registros =  Registro::with("usuario")->get();
         $pdf = Pdf::loadView('reporte', compact('registros'))->setPaper('letter', 'landscape');
         return $pdf->stream('reporte_usuarios.pdf');
+                    $now = \Carbon\Carbon::now();
+
+
     }
+
+    
 }
