@@ -13,8 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('registros', function (Blueprint $table) {
-            $table->date("ended_at");
+            $table->date("ended_at")->nullable();
         });
+        
+        DB::table('registros')->update([
+            'ended_at' => DB::raw("DATE_ADD(created_at, INTERVAL duration MINUTE)")
+        ]);
 
     }
 
