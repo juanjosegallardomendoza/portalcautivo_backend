@@ -14,7 +14,7 @@ class UsuarioController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        return Usuario::orderBy("nombre")->where("nombre", "like",  "%{$busqueda}%")->with("datos")->get();
+        return Usuario::orderBy("nombre")->where("nombre", "=",  "%{$busqueda}%")->with("datos")->get();
 
     }
 
