@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Usuario;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,8 +21,8 @@ class Registro extends Model
          
             $existe = Registro::where('created_at', '<=', $registro->created_at)
                 ->where('ended_at', '>=', $registro->created_at)
-                ->where("usuario_id", "=", $registro->usuario_id)
-                ->where("ip", "=", $registro->ip)
+                ->where("usuario_id", "like", $registro->usuario_id)
+                ->where("ip", "like", $registro->ip)
                 ->exists();
 
             if ($existe) {
