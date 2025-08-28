@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registro extends Model
 {
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'ended_at'   => 'datetime',
+        ];
     public function usuario()
     {
      return $this->belongsTo(Usuario::class);
