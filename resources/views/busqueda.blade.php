@@ -301,7 +301,7 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
             document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><b>${val.propiedad}</b>: ${val.valor} <button onclick="copiarAlPortapapeles('${val.valor}');">Copiar</buton> <br></div>`;
             if(val.url!="")
             {
-                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}"> IR A ${val.texto_url}   </a> <br></div> <br>`;
+                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}">  ${val.texto_url}   </a> <br></div> <br>`;
                 
             }
             document.getElementById(`div_${data.id}`).innerHTML +="<br>";
