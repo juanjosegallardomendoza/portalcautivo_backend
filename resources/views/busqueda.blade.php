@@ -249,6 +249,31 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
     const { fromEvent, filter, from } = rxjs;
     const { debounceTime, map, distinctUntilChanged, switchMap } = rxjs.operators;
 
+    function copiarAlPortapapeles(texto) {
+    if (!navigator.clipboard) {
+        // Fallback para navegadores más antiguos
+        const textarea = document.createElement("textarea");
+        textarea.value = texto;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+        document.execCommand("copy");
+        console.log("Texto copiado (fallback)");
+        } catch (err) {
+        console.error("Error al copiar al portapapeles (fallback):", err);
+        }
+        document.body.removeChild(textarea);
+    } else {
+        // API moderna
+        navigator.clipboard.writeText(texto)
+        .then(() => {
+            console.log("Texto copiado al portapapeles");
+        })
+        .catch(err => {
+            console.error("Error al copiar al portapapeles:", err);
+        });
+    }
+    }
 
     function toggle(item)
     {
@@ -272,10 +297,11 @@ va;g.timeInterval=yd;g.timeout=eb;g.timeoutWith=zd;g.timestamp=Ad;g.toArray=mb;g
         let propiedades$  = from(data.datos);
 
         propiedades$.subscribe(val=>{
-            document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><b>${val.propiedad}</b>: ${val.valor} <br></div>`;
+            
+            document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><b>${val.propiedad}</b>: ${val.valor} <button onclick="copiarAlPortapapeles('${val.valor}');">Copiar</buton> <br></div>`;
             if(val.url!="")
             {
-                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}"> IR AL PORTAL   </a> <br></div> <br>`;
+                document.getElementById(`div_${data.id}`).innerHTML += `<br><div style="user-select: text; margin-left:10px; "><a target="_blank" href="${val.url}"> IR A ${val.texto_url}   </a> <br></div> <br>`;
                 
             }
             document.getElementById(`div_${data.id}`).innerHTML +="<br>";
