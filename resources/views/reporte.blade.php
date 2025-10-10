@@ -86,16 +86,23 @@ Académica: <u>Pénjamo</u>
 <main>
     <table border="1" cellpading="0" cellspacing="0" width="100%">
 
-
+        @php($no=1);
         @foreach ( $registros as $registro )
 
         <tr>
-            <td>{{ $registro->created_at }}</td>
+            <td>{{ $no++ }}</td>
+            <td>{{ $registro->created_at->timezone('America/Mexico_City')->format('d-m-Y') }}</td>
             <td>{{ $registro->usuario->nombre }}</td>
-            <td>{{ $registro->actividad }}</td>
+            <td>{{ $registro->created_at->timezone('America/Mexico_City')->format('H:i') }}</td>
+            <td>{{ $registro->ended_at->timezone('America/Mexico_City')->format('H:i') }}</td>
+            <td>{{ $registro->usuario->grupo }}</td>
             <td>{{ $registro->ip }}</td>
-             <td>{{ $registro->duracion }}</td>
+
+            <td>{{ $registro->actividad }}</td>
+
+            <td>{{ $registro->duracion }}</td>
             <td>{{ $registro->usuario->tipo }}</td>
+            <td>Si</td>
             <td></td>
         </tr>
                 
