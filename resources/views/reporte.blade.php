@@ -7,6 +7,8 @@
     <style>
     @page {
         margin: 250px 25px 6px 25px; /* top, right, bottom, left */
+        font-size: 8px;
+        font-family: Arial, Helvetica, sans-serif;
     }
     header {
         position: fixed;
@@ -102,7 +104,7 @@ Académica: <u>Pénjamo</u>
 
             <td>{{ $registro->duracion }}</td>
             <td>{{ $registro->usuario->tipo }}</td>
-            <td>Si</td>
+            <td>SI</td>
             <td></td>
         </tr>
                 
