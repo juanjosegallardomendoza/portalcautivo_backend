@@ -127,7 +127,11 @@
             <label for="ft_actividad">
               Actividad:
             </label>
-            <input id="ft_actividad" type="text" autocorrect="off" autocapitalize="off">
+            <select id="ft_actividad">
+
+            </select>
+
+
           </div>
           <div class="fel">
             
@@ -231,8 +235,49 @@
           document.getElementById("mensaje").innerHTML=error;
           
         });
-          
+        
+
+        
     });
+
+    function cargarActividades()
+    {
+      fetch('http://10.10.10.10:8000/api/actividades', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(async response => {
+          document.getElementById("btn_enviar").disabled = false;
+          const data = await response.json();
+
+          if (!response.ok) 
+          {
+              throw new Error(data.message || 'Error desconocido');
+          }
+          return data;
+        }
+      )
+      .then(data => {
+        let ft_actividad = document.getElementById("ft_actividad");
+        for(const item of data)
+        {
+          const opcion  = document.createElement("option");
+          opcion.value  = item.nombre;
+          opcion.innerHTML =item.nombre;
+
+          console.log(item);
+          ft_actividad.append(opcion);
+        }
+      })
+      .catch(error => {
+        document.getElementById("mensaje").innerHTML=error;
+        
+      });
+    }
+
+    cargarActividades();
 
 
     setInterval(()=>{
