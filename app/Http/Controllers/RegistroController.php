@@ -15,10 +15,10 @@ class RegistroController extends Controller
 
         $mes = $request->mes;
         $anio =  $request->anio;
+        $dia =  $request->dia;
         
         $registros =  Registro::with("usuario")
-            ->whereMonth('created_at', $mes)
-            ->whereYear('created_at', $anio)
+            ->filtrarFecha($dia, $mes, $anio)
             ->take(1000)
             ->get();
        

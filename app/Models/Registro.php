@@ -15,7 +15,22 @@ class Registro extends Model
         'ended_at'   => 'datetime',
         ];
 
-        
+    public function scopeFiltrarFecha($query, $dia = null, $mes = null, $anio = null)
+    {
+        if (!empty($anio)) {
+            $query->whereYear('created_at', $anio);
+        }
+
+        if (!empty($mes)) {
+            $query->whereMonth('created_at', $mes);
+        }
+
+        if (!empty($dia)) {
+            $query->whereDay('created_at', $dia);
+        }
+
+        return $query;
+    }        
     public function usuario()
     {
      return $this->belongsTo(Usuario::class);
