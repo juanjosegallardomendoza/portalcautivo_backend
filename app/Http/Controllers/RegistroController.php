@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Registro;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class RegistroController extends Controller
 {
@@ -30,6 +31,34 @@ class RegistroController extends Controller
 
 
     }
+
+    public function me(Request $request)
+    {
+        $now = Carbon::now();
+
+         $now = Carbon::now();
+
+        $registros = Registro::where('ended_at', '>', $now)
+        ->where('created_at', '<', $now)
+        ->where('ip', $request->ip())
+        ->get();
+
+
+        $registro = Registro::where('ip', $request->ip())
+        ->where('ended_at', '>', $now)
+        ->where('created_at', '<', $now)
+        ->with("usuario")
+        ->orderBy("created_at","DESC")
+        ->first();
+        
+        if(!$registro)
+        {
+            return view("nouser");
+        }
+
+        return view("me", ['registro' => $registro]);
+    }
+
 
     
 }
