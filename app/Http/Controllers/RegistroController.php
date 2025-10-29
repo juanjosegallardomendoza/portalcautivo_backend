@@ -22,6 +22,8 @@ class RegistroController extends Controller
             ->take(1000)
             ->get();
        
+        //return view('reporte', compact('registros'));
+
         $pdf = Pdf::loadView('reporte', compact('registros'))->setPaper('letter', 'landscape');
         return $pdf->stream('reporte_usuarios.pdf');
         

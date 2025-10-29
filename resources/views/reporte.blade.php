@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
     @page {
-        margin: 133px 25px 6px 25px; /* top, right, bottom, left */
+        margin: 133px 25px 70px 25px; /* top, right, bottom, left */
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -28,15 +28,15 @@
 
     footer {
         position: fixed;
-        bottom: -40px;
+        bottom: -30px;
         left: 0;
         right: 0;
         height: 30px;
-        background-color: #f5f5f5;
+
         text-align: center;
-        font-size: 12px;
-        border-top: 1px solid #ccc;
-        line-height: 25px;
+        font-size: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 15px;
     }
     .cabecera
     {
@@ -51,6 +51,21 @@
 
     }
 
+        table.firma {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      text-align: center;
+    }
+    table.firma td {
+      border: none;
+      padding: 20px 0 5px 0; /* espacio para la línea */
+    }
+    /* Línea de firma en medio de los dos renglones */
+    table.firma tr.linea td {
+      border-top: 1px solid #000;
+    }
+
     </style>
 </head>
 <body>
@@ -59,7 +74,10 @@
 <header>
 <table width="100%" border="1" cellpading="0" cellspacing="0" >
     <tr >
-        <th  style="height: 40px;"  width="8%" align="center">CECYTEG</th>
+        <th  style="height: 40px;"  width="8%" align="center">
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/cecyteg.png'))) }}" alt="Logo" style="width:35px;">
+
+        </th>
         <th  width="85%" align="center">REGISTRO DE HORAS PRÁCTICA EN CENTRO DE CÓMPUTO</th>
         <th  width="7%" align="center">
             CÓDIGO: <br>
@@ -104,8 +122,19 @@ Unidad Académica: <u>Pénjamo</u>
 </div>
 </header>
 
-<footer>
-    Juan Jose
+<footer >
+    <div style="width:100%; text-align:center;">
+        <div style="display:inline-block; width:300px">
+            <div style="width: 100%; border-bottom: #000 solid;">
+                Juan José Gallardo Mendoza
+            </div>
+      
+          
+            Nombre y Firma del Programador de la Unidad Académica	
+
+
+        </div>
+    </div>									
 </footer>
 
 <main>
@@ -117,7 +146,7 @@ Unidad Académica: <u>Pénjamo</u>
         <tr>
             <td width="3%" align="center">{{ $no++ }}</td>
             <td width="5%" align="center">{{ $registro->created_at->timezone('America/Mexico_City')->format('d-m-Y') }}</td>
-            <td width="20%">{{ $registro->usuario->nombre }}</td>
+            <td width="20%">&nbsp;{{ $registro->usuario->nombre }}</td>
             <td width="4%" align="center">{{ $registro->usuario->tipo == "ALUMNO"?"X":"" }}</td>
             <td width="4%" align="center">{{ $registro->usuario->tipo == "ADMINISTRATIVO"?"X":"" }}</td>
             <td width="4%" align="center">{{ $registro->usuario->tipo == "DOCENTE"?"X":"" }}</td>
