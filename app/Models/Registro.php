@@ -15,6 +15,7 @@ class Registro extends Model
         'ended_at'   => 'datetime',
         ];
 
+    protected $fillable = ["duracion", "ended_at"];
     public function scopeFiltrarFecha($query, $dia = null, $mes = null, $anio = null)
     {
         if (!empty($anio)) {
