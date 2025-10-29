@@ -6,18 +6,25 @@
     <title>Document</title>
     <style>
     @page {
-        margin: 250px 25px 6px 25px; /* top, right, bottom, left */
+        margin: 133px 25px 6px 25px; /* top, right, bottom, left */
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
     }
     header {
         position: fixed;
-        top: -200px;
+        top: -113px;
         left: 0;
         right: 0;
         text-align: center;
 
     }
+    table, tr, td,th
+    {
+        border: 1px solid #000;      /* línea negra simple en todas las celdas */
+        padding: 0;                  /* sin espacio interno */
+        margin: 0;
+    }
+
 
     footer {
         position: fixed;
@@ -31,6 +38,18 @@
         border-top: 1px solid #ccc;
         line-height: 25px;
     }
+    .cabecera
+    {
+        background-color: blue;
+        color: white;
+
+    }
+    .subcabecera
+    {
+        background-color: lightgray;
+        color: black;
+
+    }
 
     </style>
 </head>
@@ -39,40 +58,44 @@
 
 <header>
 <table width="100%" border="1" cellpading="0" cellspacing="0" >
-    <tr>
-        <td width="20%" align="center">CECYTEG</td>
-        <td  width="60%" align="center">REGISTRO DE HORAS PRÁCTICA EN CENTRO DE CÓMPUTO</td>
-        <td  width="20%" align="center">
+    <tr >
+        <th  style="height: 40px;"  width="8%" align="center">CECYTEG</th>
+        <th  width="85%" align="center">REGISTRO DE HORAS PRÁCTICA EN CENTRO DE CÓMPUTO</th>
+        <th  width="7%" align="center">
             CÓDIGO: <br>
             FO236-004/C
-        </td>
+        </th>
     </tr>
 </table>
 <div align="left">
-Unidad<br>
-Académica: <u>Pénjamo</u>
+<br>
+Unidad Académica: <u>Pénjamo</u>
+<br><br>
 <table border="1" cellpading="0" cellspacing="0" width="100%">
 
-        <tr>
-            <td rowspan="2">No.</td>
-            <td rowspan="2">FECHA</td>
-            <td rowspan="2">NOMBRE</td>
-            <td colspan="4" >USUARIO</td>
-            <td rowspan="2">HORA DE ENTRADA</td>
-            <td rowspan="2">HORA DE SALIDA</td>
-            <td rowspan="2">GRUPO</td>
-            <td rowspan="2">No. EQUIPO</td>
-            <td rowspan="2">ACTIVIDAD</td>
-            <td rowspan="2">¿USO INTERNET?</td>
-            <td rowspan="2">OBSERVACIONES</td>
+        <tr class="cabecera">
+            <th  style="height: 40px;"  width="3%" rowspan="2 align="center"">No.</th>
+            <th  width="5%" rowspan="2" align="center">FECHA</th>
+            <th  width="20%" rowspan="2" align="center">NOMBRE</th>
+            <th  colspan="4" align="center">USUARIO</th>
+            <th  width="4%" rowspan="2"  align="center">HORA DE ENTRADA</th>
+            <th  width="4%" rowspan="2" align="center">HORA DE SALIDA</th>
+            <th  width="4%" rowspan="2" align="center">GRUPO</th>
+            <th  width="5%" rowspan="2" align="center">No. EQUIPO</th>
+            <th  width="20%" rowspan="2" align="center">ACTIVIDAD</th>
+            <th colspan="2" align="center" align="center">¿USO INTERNET?</th>
+            <th  width="7%" rowspan="2 align="center"">OBSERVACIONES</th>
 
         </tr>
-        <tr>
+        <tr  class="subcabecera">
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td  width="4%" align="center">ALUMNO</td>
+            <td  width="4%" align="center">DOCENTE</td>
+            <td  width="4%" align="center">ADMIN</td>
+            <td  width="4%" align="center">EXTERNO</td>
+
+            <td  width="4%" align="center">SI</td>
+            <td  width="4%" align="center">NO</td>
 
         </tr>
 
@@ -92,20 +115,21 @@ Académica: <u>Pénjamo</u>
         @foreach ( $registros as $registro )
 
         <tr>
-            <td>{{ $no++ }}</td>
-            <td>{{ $registro->created_at->timezone('America/Mexico_City')->format('d-m-Y') }}</td>
-            <td>{{ $registro->usuario->nombre }}</td>
-            <td>{{ $registro->created_at->timezone('America/Mexico_City')->format('H:i') }}</td>
-            <td>{{ $registro->ended_at->timezone('America/Mexico_City')->format('H:i') }}</td>
-            <td>{{ $registro->usuario->grupo }}</td>
-            <td>{{ $registro->ip }}</td>
-
-            <td>{{ $registro->actividad }}</td>
-
-            <td>{{ $registro->duracion }}</td>
-            <td>{{ $registro->usuario->tipo }}</td>
-            <td>SI</td>
-            <td></td>
+            <td width="3%" align="center">{{ $no++ }}</td>
+            <td width="5%" align="center">{{ $registro->created_at->timezone('America/Mexico_City')->format('d-m-Y') }}</td>
+            <td width="20%">{{ $registro->usuario->nombre }}</td>
+            <td width="4%" align="center">{{ $registro->usuario->tipo == "ALUMNO"?"X":"" }}</td>
+            <td width="4%" align="center">{{ $registro->usuario->tipo == "ADMINISTRATIVO"?"X":"" }}</td>
+            <td width="4%" align="center">{{ $registro->usuario->tipo == "DOCENTE"?"X":"" }}</td>
+            <td width="4%" align="center">{{ $registro->usuario->tipo == "EXTERNO"?"X":"" }}</td>
+            <td width="4%" align="center">{{ $registro->created_at->timezone('America/Mexico_City')->format('H:i') }}</td>
+            <td width="4%" align="center">{{ $registro->ended_at->timezone('America/Mexico_City')->format('H:i') }}</td>
+            <td width="4%" align="center">{{ $registro->usuario->grupo }}</td>
+            <td width="5%" align="center">{{ $registro->ip }}</td>
+            <td width="20%" align="center">{{ $registro->actividad }}</td>
+            <td width="4%" align="center">X</td>
+            <td width="4%"></td>
+            <td width="7%"></td>
         </tr>
                 
         @endforeach
