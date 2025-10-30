@@ -123,9 +123,14 @@ Unidad Académica: <u>Pénjamo</u>
 </header>
 
 <footer >
+    <div style="position: absolute; top: -40px; left: 420px;">
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/firma.png'))) }}" alt="Logo" style="width:135px;">
+    </div>
+
+
     <div style="width:100%; text-align:center;">
         <div style="display:inline-block; width:300px">
-            <div style="width: 100%; border-bottom: #000 solid;">
+                  <div style="width: 100%; border-bottom: #000 solid;">
                 Juan José Gallardo Mendoza
             </div>
       
