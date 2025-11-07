@@ -10,6 +10,6 @@
     <a href="https://10.20.0.1?login">
            Inicia sesion 
     </a>
-para continuar 
+
 </body>
 </html>

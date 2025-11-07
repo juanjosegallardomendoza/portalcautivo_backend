@@ -58,20 +58,36 @@ class RegistroController extends Controller
         ->where('ip', $request->ip())
         ->get();
 
-
+        
         $registro = Registro::where('ip', $request->ip())
         ->where('ended_at', '>', $now)
         ->where('created_at', '<', $now)
-        ->with("usuario")
+        ->with(["usuario.datos"])->with("datos")
         ->orderBy("created_at","DESC")
         ->first();
-        
+
+
+        if($request->test==true)
+        {
+            $registro = Registro::with(["usuario.datos"])
+            ->orderBy("created_at","DESC")
+            ->first();
+
+        }
+
         if(!$registro)
         {
             return view("nouser");
         }
-
-        return view("me", ['registro' => $registro]);
+        
+        $datos ="asdfas";
+        if($request->url )
+        {
+            return view($request->url, ['registro' => $registro, "datos"=>$datos]);
+        }
+     
+        
+        return view("me", ['registro' => $registro, "datos"=>$datos]);
     }
 
 
