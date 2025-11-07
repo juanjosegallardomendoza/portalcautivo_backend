@@ -28,3 +28,6 @@ Route::get('/busqueda', function () {
 
 
 Route::get("reporte",[RegistroController::class, "generarReporte"]);
+
+
+Route::get("accesos",[RegistroController::class, "generarReporteAccesos"]);

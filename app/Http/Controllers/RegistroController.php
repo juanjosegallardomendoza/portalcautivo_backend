@@ -12,7 +12,7 @@ class RegistroController extends Controller
     public function generarReporte(Request $request)
     {
         ini_set('max_execution_time', 600); // 300 segundos = 5 minutos
-        ini_set('memory_limit', '2048M'); // (opcional) aumenta el límite de memoria
+        ini_set('memory_limit', '4096M'); // (opcional) aumenta el límite de memoria
 
         $mes = $request->mes;
         $anio =  $request->anio;
@@ -20,7 +20,6 @@ class RegistroController extends Controller
         
         $registros =  Registro::with("usuario")
             ->filtrarFecha($dia, $mes, $anio)
-            ->take(1000)
             ->get();
        
         //return view('reporte', compact('registros'));
@@ -32,11 +31,27 @@ class RegistroController extends Controller
 
     }
 
+    public function generarReporteAccesos()
+    {
+        $datos = Registro::selectRaw('
+            MONTH(created_at) AS mes,
+            YEAR(created_at) AS anio,
+            SUBSTRING_INDEX(SUBSTRING_INDEX(ip, ".", 3), ".", -1) AS tercer_octeto,
+            COUNT(DISTINCT usuario_id) AS total
+        ')
+        ->groupBy('anio', 'mes', 'tercer_octeto')
+        ->orderBy('anio')
+        ->orderBy('mes')
+        ->orderByRaw('CAST(tercer_octeto AS UNSIGNED)')
+        ->get();
+        
+        $pdf = Pdf::loadView('accesos', compact('datos'))->setPaper('letter', 'portrait');
+        return $pdf->stream('reporte_usuarios.pdf');
+    }
+
     public function me(Request $request)
     {
         $now = Carbon::now();
-
-         $now = Carbon::now();
 
         $registros = Registro::where('ended_at', '>', $now)
         ->where('created_at', '<', $now)
