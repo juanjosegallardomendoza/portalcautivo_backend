@@ -15,6 +15,8 @@
                  <h1>{{$registro->usuario->nombre}}</h1>
 
             <h2>Crea tu cuenta de BBVA Superate</h2>
+            
+            <h2>Actividad {{$registro->actividad}}</h2>
         </div>
         <div>
        

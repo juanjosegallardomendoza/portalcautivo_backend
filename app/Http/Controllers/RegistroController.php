@@ -52,19 +52,15 @@ class RegistroController extends Controller
     public function me(Request $request)
     {
         $now = Carbon::now();
-
-        $registros = Registro::where('ended_at', '>', $now)
-        ->where('created_at', '<', $now)
-        ->where('ip', $request->ip())
-        ->get();
-
+      
         
         $registro = Registro::where('ip', $request->ip())
         ->where('ended_at', '>', $now)
         ->where('created_at', '<', $now)
-        ->with(["usuario.datos"])->with("datos")
+        ->with(["usuario.datos"])
         ->orderBy("created_at","DESC")
         ->first();
+
 
 
         if($request->test==true)
@@ -91,6 +87,8 @@ class RegistroController extends Controller
 
         if($request->url )
         {
+            //if(  strtolower($registro->actividad) != $request->url)
+            //    return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
      
