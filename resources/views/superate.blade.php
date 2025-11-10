@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        li {
+  margin-bottom: 10px; /* o el espacio que quieras */
+}
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
@@ -12,12 +17,11 @@
     <div class="container">
 
         <div class="text-center">
-                 <h1>{{$registro->usuario->nombre}}</h1>
-
-            <h2>Crea tu cuenta de BBVA Superate</h2>
-            
-            <h2>Actividad {{$registro->actividad}}</h2>
+            <h1>{{$registro->usuario->nombre}}</h1>
+            <h2>Crea tu cuenta de BBVA Superate</h2>            
         </div>
+
+        
         <div>
        
 
@@ -42,6 +46,11 @@
                 <li>
                     Copia la contraseña    
                     <button onclick="copiar('{{ $registro->usuario->datos['PASSWORD SUPERATE']['valor'] ?? '' }}')" class="btn btn-primary">Copiar contraseña</button> 
+                    y pégala en donde dice <b>Crea tu contraseña de acceso:</b>
+                </li>
+                <li>
+                    Copia el GRUPO    
+                    <button onclick="copiar('{{ $registro->usuario->datos['GRUPO SUPERATE']['valor'] ?? '' }}')" class="btn btn-primary">Copiar grupo</button> 
                     y pégala en donde dice <b>Crea tu contraseña de acceso:</b>
                 </li>
 
@@ -78,6 +87,7 @@
                 <li>Haz click en <b>Mantener tu sesión iniciada</b></li>
                 <li>Busca en tu bandeja de entrada un correo con el asunto <b>¡Bienvenido a Supérate con Fundación BBVA!</b></li>
                 <li>Da click en el botón <b>Valida aquí el correo</b></li>
+                <li>Cierra tu sesion de correo</li>
             </ol>
 
             
