@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('datos', function (Blueprint $table) {
             //
-            $table->boolean("mostrar_texto");
+           $table->boolean('mostrar_texto')->default(true);
         });
     }
 

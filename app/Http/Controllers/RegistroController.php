@@ -69,9 +69,15 @@ class RegistroController extends Controller
 
         if($request->test==true)
         {
-            $registro = Registro::with(["usuario.datos"])
-            ->orderBy("created_at","DESC")
+            $registro = Registro::whereHas('usuario', function ($query) {
+                $query->where("id", "=", 6);
+             
+            })
+            ->with('usuario.datos')
+      
+            ->orderBy('created_at', 'DESC')
             ->first();
+
 
         }
 
@@ -80,14 +86,16 @@ class RegistroController extends Controller
             return view("nouser");
         }
         
-        $datos ="asdfas";
+        $registro->usuario->datos = $registro->usuario->datos->keyBy('propiedad')->toArray();
+
+
         if($request->url )
         {
-            return view($request->url, ['registro' => $registro, "datos"=>$datos]);
+            return view($request->url, ['registro' => $registro]);
         }
      
         
-        return view("me", ['registro' => $registro, "datos"=>$datos]);
+        return view("me", ['registro' => $registro]);
     }
 
 

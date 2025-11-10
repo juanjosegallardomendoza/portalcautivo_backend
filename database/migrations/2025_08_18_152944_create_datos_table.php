@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger("usuario_id");
             $table->string("propiedad");
             $table->string("valor");
-            $table->string("url");  
-            $table->string("texto_url");   
+            $table->string("url")->nullable();  
+            $table->string("texto_url")->nullable();   
             $table->foreign("usuario_id")->references("id")->on("usuarios");
             $table->timestamps();
         });
