@@ -36,23 +36,24 @@
 
                 <li>
                     Copia el nombre de usuario  
-                    <button onclick="copiar('CECYTEG{{$registro->usuario->usuario}}')" class="btn btn-primary">Copiar Nombre de Usuario</button> 
+                    <button onclick="copiar('{{ substr($registro->usuario->datos['CURP']['valor'],0,10) ?? '' }}')" class="btn btn-primary">Copiar Nombre de Usuario</button> 
                     y pégalo en donde dice <b>"Escribe tu nombre de usuario:"</b>
                 </li>
 
                 <li>Selecciona <b>"Soy estudiante"</b> donde dice <b>Selecciona tu perfil: </b></li>
                 <li>Da click en <b>"Continuar"</b></li>
-
+                <li>Da click en donde dice <b>Tengo una clave de grupo</b> </li>
+                <li>
+                    Copia el GRUPO    
+                    <button onclick="copiar('{{ $registro->usuario->datos['GRUPO SUPERATE']['valor'] ?? '' }}')" class="btn btn-primary">Copiar grupo</button> 
+                    y pégala en donde dice <b>Escribe la clave de grupo</b>
+                </li>
                 <li>
                     Copia la contraseña    
                     <button onclick="copiar('{{ $registro->usuario->datos['PASSWORD SUPERATE']['valor'] ?? '' }}')" class="btn btn-primary">Copiar contraseña</button> 
                     y pégala en donde dice <b>Crea tu contraseña de acceso:</b>
                 </li>
-                <li>
-                    Copia el GRUPO    
-                    <button onclick="copiar('{{ $registro->usuario->datos['GRUPO SUPERATE']['valor'] ?? '' }}')" class="btn btn-primary">Copiar grupo</button> 
-                    y pégala en donde dice <b>Crea tu contraseña de acceso:</b>
-                </li>
+
 
                 <li>Pégala nuevamente en donde dice <b>Vuelve a escribir tu contraseña:</b></li>
                 <li>Marca la casilla <b>"He leído y acepto el Aviso de Privacidad de Supérate"</b></li>
@@ -64,13 +65,13 @@
                     y pégalo en donde dice <b>Escribe el correo electrónico de tu padre, madre o tutor:</b>
                 </li>
 
-                <li>Pégalo nuevamente en donde dice <b>Confirma el correo electrónico:</b></li>
-
+                <li>Pégalo nuevamente en donde dice <b>Confirma el correo electrónico:</b> </li>
+                <li>Da click en guardar cambios</li>
                 <li>
                     Ingresa a:
-                    <a href="https://escuelas.superateconfundacionbbva.mx/registro" 
+                    <a href="https://outlook.live.com/" 
                         onclick="abrirVentanaOffice(event)">
-                        Office.com
+                        Outlook
                     </a>
                 </li>
 
@@ -84,7 +85,6 @@
                 </li>
 
                 <li>Haz click en <b>Iniciar sesión</b></li>
-                <li>Haz click en <b>Mantener tu sesión iniciada</b></li>
                 <li>Busca en tu bandeja de entrada un correo con el asunto <b>¡Bienvenido a Supérate con Fundación BBVA!</b></li>
                 <li>Da click en el botón <b>Valida aquí el correo</b></li>
                 <li>Cierra tu sesion de correo</li>
@@ -139,7 +139,7 @@
         let ventanaOffice = null;
         function abrirVentanaOffice(e) {
             e.preventDefault(); // evita recargar la página actual
-            const url = 'https://www.office.com/';
+            const url = 'https://outlook.live.com/';
             
             if (!ventanaOffice || ventanaOffice.closed) {
                 ventanaOffice = window.open(url, 'ventanaOffice'); // abre o reutiliza la pestaña

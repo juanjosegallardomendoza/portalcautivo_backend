@@ -18,12 +18,13 @@ class RegistroController extends Controller
         $anio =  $request->anio;
         $dia =  $request->dia;
         
-        $registros =  Registro::with("usuario")
-            ->filtrarFecha($dia, $mes, $anio)
-            ->get();
-       
-        //return view('reporte', compact('registros'));
-
+        $registros = Registro::with(['usuario' => function ($query) {
+            $query->withTrashed();
+        }])
+        ->filtrarFecha($dia, $mes, $anio)
+        ->get();
+        //return response()->json($registros);
+        
         $pdf = Pdf::loadView('reporte', compact('registros'))->setPaper('letter', 'landscape');
         return $pdf->stream('reporte_usuarios.pdf');
         
@@ -84,11 +85,11 @@ class RegistroController extends Controller
         
         $registro->usuario->datos = $registro->usuario->datos->keyBy('propiedad')->toArray();
 
-
+              //  return response()->json($registro->actividad);
         if($request->url )
         {
-            //if(  strtolower($registro->actividad) != $request->url)
-            //    return view("nouser");
+            if(  strtolower($registro->actividad) != $request->url)
+                return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
      
