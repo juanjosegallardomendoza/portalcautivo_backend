@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Registro;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use PHPUnit\Framework\MockObject\Stub\ReturnReference;
 
 class RegistroController extends Controller
 {
@@ -66,16 +67,17 @@ class RegistroController extends Controller
 
         if($request->test==true)
         {
+
+           
             $registro = Registro::whereHas('usuario', function ($query) {
-                $query->where("id", "=", 6);
+                $query->where("id", "=", value: 116);
              
             })
             ->with('usuario.datos')
-      
             ->orderBy('created_at', 'DESC')
             ->first();
 
-
+            $registro->actividad = $request->url;
         }
 
         if(!$registro)
