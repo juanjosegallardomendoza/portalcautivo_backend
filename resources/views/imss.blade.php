@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crea tu cuenta BBVA Supérate</title>
+  <title>Tramite de carátula IMSS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -46,19 +46,44 @@
         <div class="card p-5">
           <div class="text-center mb-4">
             <h1 class="mb-2">{{ $registro->usuario->nombre }}</h1>
-            <h2>Ingresa a tu correo electrónico</h2>
+            <h2>Tramitar Caratula IMSS</h2>
           </div>
 
           <ol class="fs-5 ps-4">
             <li>
               Ingresa a:
-              <a href="https://outlook.live.com/
-                 onclick="abrirVentanaOffice(event)">
-                 Como ingresar a tu correo electrónico
+              <a href="https://serviciosdigitales.imss.gob.mx/gestionAsegurados-web-externo/consultaCartilla/iniciar"
+                 onclick="abrirVentanaIMSS(event)">
+                 Abrir IMSS
               </a>
             </li>
 
-            
+            <li>
+              Copia tu CURP
+              <button onclick="copiar('{{ $registro->usuario->datos['CURP']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+                Copiar Curp
+              </button>
+              , pégalo donde dice <b>“Ingresa tu CURP”</b> y haz click en <b>siguiente</b>.
+            </li>
+
+            <li>
+                Copia tu NSS 
+                <button onclick="copiar('{{ $registro->usuario->datos['NSS']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+                    Copiar NSS
+              </button>
+            </li>
+            <li>
+              Copia tu correo electrónico
+              <button onclick="copiar('{{ $registro->usuario->datos['CORREO']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+                Copiar Correo
+              </button>
+              , pégalo donde dice <b>“Ingresa tu correo electrónico personal”</b> y haz click en <b>siguiente</b>.
+            </li>
+
+            <li>Escribe a mano tu correo en donde dice: <b>Confirma tu correo electrónico personal</b> </li>
+            <li>Escribe las letras de la imagen que se muestra y escribelas donde dice <b>Captura</b></li>
+
+            <li>Abre tu correo electrónico y revisa el archivo si no sabes como hacerlo puedes hacer click en el siguiente enlace <a href="http://10.10.10.10:8000/me?url=correo">Abrir correo electrónico</a> </li>
           </ol>
         </div>
       </div>
@@ -83,18 +108,16 @@
       }
     }
 
-    let ventanaOffice = null;
-    function abrirVentanaOffice(e) {
+    let ventanaIMSS = null;
+    function abrirVentanaIMSS(e) {
       e.preventDefault();
-      const url = 'https://outlook.live.com/';
-      if (!ventanaOffice || ventanaOffice.closed) {
-        ventanaOffice = window.open(url, 'ventanaOffice');
+      const url = 'https://serviciosdigitales.imss.gob.mx/gestionAsegurados-web-externo/consultaCartilla/iniciar';
+      if (!ventanaIMSS || ventanaIMSS.closed) {
+        ventanaIMSS = window.open(url, 'suredsu');
       } else {
-        ventanaOffice.focus();
+        ventanaIMSS.focus();
       }
     }
-
-
   </script>
 </body>
 </html>

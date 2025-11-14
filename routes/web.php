@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::get('/logout', [UsuarioController::class, "logout"]);
 
 Route::get('/me', [RegistroController::class, "me"]);
+Route::get('/correo', [RegistroController::class, "correo"]);
 
 Route::get('/test', function () {
     return view('portal');

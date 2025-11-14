@@ -90,7 +90,7 @@ class RegistroController extends Controller
               //  return response()->json($registro->actividad);
         if($request->url )
         {
-            if(  strtolower($registro->actividad) != $request->url)
+            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo")
                 return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
@@ -99,6 +99,7 @@ class RegistroController extends Controller
         return view("me", ['registro' => $registro]);
     }
 
+    
 
     
 }

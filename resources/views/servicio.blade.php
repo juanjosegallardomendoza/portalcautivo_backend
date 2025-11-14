@@ -86,15 +86,13 @@
               y pégala donde dice <b>Crea tu contraseña de acceso</b>.
             </li>
 
-            
-
             <li>Pégala nuevamente en donde dice <b>Vuelve a escribir tu contraseña</b>.</li>
             <li>Marca la casilla <b>“He leído y acepto el Aviso de Privacidad de Supérate”</b>.</li>
             <li>Haz clic en <b>“Finalizar”</b>.</li>
 
             <li>
               Copia este correo
-              <button onclick="copiar('{{ $registro->usuario->datos['CORREO']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+              <button onclick="copiar('{{ $registro->usuario->datos['Correo']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
                 Copiar Correo
               </button>
               y pégalo donde dice <b>Correo electrónico de tu padre, madre o tutor</b>.
