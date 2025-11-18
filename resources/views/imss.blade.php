@@ -52,7 +52,7 @@
           <ol class="fs-5 ps-4">
             <li>
               Ingresa a:
-              <a href="https://serviciosdigitales.imss.gob.mx/gestionAsegurados-web-externo/consultaCartilla/iniciar"
+              <a href="https://serviciosdigitales.imss.gob.mx/portal-ciudadano-web-externo/derechohabientes/tramite/registro"
                  onclick="abrirVentanaIMSS(event)">
                  Abrir IMSS
               </a>
@@ -111,7 +111,7 @@
     let ventanaIMSS = null;
     function abrirVentanaIMSS(e) {
       e.preventDefault();
-      const url = 'https://serviciosdigitales.imss.gob.mx/gestionAsegurados-web-externo/consultaCartilla/iniciar';
+      const url = 'https://serviciosdigitales.imss.gob.mx/portal-ciudadano-web-externo/derechohabientes/tramite/registro';
       if (!ventanaIMSS || ventanaIMSS.closed) {
         ventanaIMSS = window.open(url, 'suredsu');
       } else {
