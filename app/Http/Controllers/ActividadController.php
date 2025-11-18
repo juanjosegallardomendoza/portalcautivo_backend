@@ -10,6 +10,6 @@ class ActividadController extends Controller
 {
     public function index()
     {
-        return Actividad::all();
+        return Actividad::orderBy("nombre", "ASC")->get();
     }   
 }

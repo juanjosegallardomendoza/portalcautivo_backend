@@ -74,7 +74,7 @@
             </li>
             <li>
               Copia tu correo electrónico
-              <button onclick="copiar('{{ $registro->usuario->datos['CORREO']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+              <button onclick="copiar('{{ $registro->usuario->datos['Correo']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
                 Copiar Correo
               </button>
               , pégalo donde dice <b>“Ingresa tu correo electrónico personal”</b> y haz click en <b>siguiente</b>.

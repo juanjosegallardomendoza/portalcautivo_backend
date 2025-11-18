@@ -46,84 +46,36 @@
         <div class="card p-5">
           <div class="text-center mb-4">
             <h1 class="mb-2">{{ $registro->usuario->nombre }}</h1>
-            <h2>Crea tu cuenta BBVA Supérate</h2>
+            <h2>Sube tus activiades de servicio social</h2>
           </div>
 
           <ol class="fs-5 ps-4">
             <li>
               Ingresa a:
               <a href="https://escuelas.superateconfundacionbbva.mx/registro"
-                 onclick="abrirVentanaBBVA(event)">
-                 Registrar BBVA Supérate
+                 onclick="abrirPortalEstudiantil(event)">
+                 Portal estudiantil
               </a>
             </li>
 
             <li>
-              Copia el nombre de usuario
-              <button onclick="copiar('{{ substr($registro->usuario->datos['CURP']['valor'],0,10) ?? '' }}')" class="btn btn-sm btn-primary">
+              Copia numero de control
+              <button onclick="copiar('{{ $registro->usuario->usuario }}')" class="btn btn-sm btn-primary">
                 Copiar Nombre de Usuario
               </button>
               y pégalo donde dice <b>“Escribe tu nombre de usuario”</b>.
             </li>
 
-            <li>Selecciona <b>“Soy estudiante”</b> donde dice <b>Selecciona tu perfil</b>.</li>
-            <li>Haz clic en <b>“Continuar”</b>.</li>
-            <li>Haz clic en <b>“Tengo una clave de grupo”</b>.</li>
-
+            
             <li>
-              Copia el grupo
-              <button onclick="copiar('{{ $registro->usuario->datos['GRUPO SUPERATE']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
-                Copiar Grupo
-              </button>
-              y pégalo donde dice <b>Escribe la clave de grupo</b>.
-            </li>
-
-            <li>
-              Copia la contraseña
-              <button onclick="copiar('{{ $registro->usuario->datos['PASSWORD SUPERATE']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+              Copia la contrseña:
+              <button onclick="copiar('{{ $registro->usuario->password }}')" class="btn btn-sm btn-primary">
                 Copiar Contraseña
               </button>
-              y pégala donde dice <b>Crea tu contraseña de acceso</b>.
+              y pégalo donde dice <b>“Contraseña”</b>.
             </li>
 
-            <li>Pégala nuevamente en donde dice <b>Vuelve a escribir tu contraseña</b>.</li>
-            <li>Marca la casilla <b>“He leído y acepto el Aviso de Privacidad de Supérate”</b>.</li>
-            <li>Haz clic en <b>“Finalizar”</b>.</li>
-
-            <li>
-              Copia este correo
-              <button onclick="copiar('{{ $registro->usuario->datos['Correo']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
-                Copiar Correo
-              </button>
-              y pégalo donde dice <b>Correo electrónico de tu padre, madre o tutor</b>.
-            </li>
-
-            <li>Pégalo nuevamente en donde dice <b>Confirma el correo electrónico</b>.</li>
-            <li>Haz clic en <b>Guardar cambios</b>.</li>
-
-            <li>
-              Ingresa a:
-              <a href="https://outlook.live.com/"
-                 onclick="abrirVentanaOffice(event)">
-                 Outlook
-              </a>
-            </li>
-
-            <li>Haz clic en <b>Iniciar sesión</b>.</li>
-            <li>Pega tu correo electrónico donde dice <b>Iniciar sesión</b>.</li>
-
-            <li>
-              Copia esta contraseña
-              <button onclick="copiar('{{ $registro->usuario->datos['Password Correo Nuevo']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
-                Copiar Contraseña Correo
-              </button>
-              y pégala donde dice <b>Escribe tu contraseña</b>.
-            </li>
-
-            <li>Haz clic en <b>Iniciar sesión</b>.</li>
-            <li>Busca el correo con el asunto <b>“¡Bienvenido a Supérate con Fundación BBVA!”</b>.</li>
-            <li>Haz clic en el botón <b>“Valida aquí el correo”</b>.</li>
-            <li>Cierra tu sesión de correo.</li>
+            
           </ol>
         </div>
       </div>
@@ -148,14 +100,14 @@
       }
     }
 
-    let ventanaBBVA = null;
-    function abrirVentanaBBVA(e) {
+    let portalEstudiantil = null;
+    function abrirPortalEstudiantil(e) {
       e.preventDefault();
-      const url = 'https://escuelas.superateconfundacionbbva.mx/registro';
-      if (!ventanaBBVA || ventanaBBVA.closed) {
-        ventanaBBVA = window.open(url, 'superateBBVA');
+      const url = 'https://sae.cecyteg.edu.mx:4046/PortalAlumno/Account/Login';
+      if (!portalEstudiantil || portalEstudiantil.closed) {
+        portalEstudiantil = window.open(url, 'superateBBVA');
       } else {
-        ventanaBBVA.focus();
+        portalEstudiantil.focus();
       }
     }
 
