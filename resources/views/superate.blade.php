@@ -94,7 +94,7 @@
 
             <li>
               Copia este correo
-              <button onclick="copiar('{{ $registro->usuario->datos['CORREO']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+              <button onclick="copiar('{{ $registro->usuario->datos['Correo']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
                 Copiar Correo
               </button>
               y pégalo donde dice <b>Correo electrónico de tu padre, madre o tutor</b>.
