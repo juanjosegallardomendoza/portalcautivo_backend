@@ -70,7 +70,7 @@ class RegistroController extends Controller
 
            
             $registro = Registro::whereHas('usuario', function ($query) {
-                $query->where("id", "=", value: 116);
+                $query->where("id", "=", value: 725);
              
             })
             ->with('usuario.datos')
@@ -90,7 +90,7 @@ class RegistroController extends Controller
               //  return response()->json($registro->actividad);
         if($request->url )
         {
-            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo")
+            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones")
                 return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }

@@ -48,8 +48,13 @@
             <h1 class="mb-2">{{ $registro->usuario->nombre }}</h1>
             <h2>Crea tu cuenta BBVA Supérate</h2>
           </div>
-
+   
+          <span class="fs-5 ps-4">
+            Si Ya tienes cuenta inicia sesion <a target="https://escuelas.superateconfundacionbbva.mx/">aqui</a> si no sigue los siguientes pasos
+          </span>
+        <hr>
           <ol class="fs-5 ps-4">
+
             <li>
               Ingresa a:
               <a href="https://escuelas.superateconfundacionbbva.mx/registro"
@@ -57,7 +62,6 @@
                  Registrar BBVA Supérate
               </a>
             </li>
-
             <li>
               Copia el nombre de usuario
               <button onclick="copiar('{{ substr($registro->usuario->datos['CURP']['valor'],0,10) ?? '' }}')" class="btn btn-sm btn-primary">
