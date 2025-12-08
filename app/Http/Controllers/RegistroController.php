@@ -65,12 +65,12 @@ class RegistroController extends Controller
 
 
 
-        if($request->test==true)
+        if($request->test)
         {
 
            
-            $registro = Registro::whereHas('usuario', function ($query) {
-                $query->where("id", "=", value: 725);
+            $registro = Registro::whereHas('usuario', function ($query) use ($request) {
+                $query->where("usuario", "=", $request->test);
              
             })
             ->with('usuario.datos')

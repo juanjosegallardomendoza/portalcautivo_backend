@@ -50,7 +50,7 @@
           </div>
    
           <span class="fs-5 ps-4">
-            Si Ya tienes cuenta inicia sesion <a target="https://escuelas.superateconfundacionbbva.mx/">aqui</a> si no sigue los siguientes pasos
+            Si Ya tienes cuenta inicia sesion <a href="https://escuelas.superateconfundacionbbva.mx/" target="_blank">aqui</a> si no sigue los siguientes pasos
           </span>
         <hr>
           <ol class="fs-5 ps-4">
