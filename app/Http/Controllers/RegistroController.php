@@ -45,7 +45,10 @@ class RegistroController extends Controller
         $dia = $request->dia;
         $actividad = $request->actividad;
         $grupo = $request->grupo;
+    
+        $arr_actividad = explode("-",$actividad);
 
+        $materia = $arr_actividad[1];
         // 1️⃣ Usuarios únicos ordenados por nombre
         $usuarios = Usuario::withTrashed()
             ->with(['registros' => function ($query) use ($dia, $mes, $anio, $actividad) {
@@ -67,10 +70,13 @@ class RegistroController extends Controller
             ->map(fn ($grupo) => $grupo->first())
             ->values();
 
-        $pdf = Pdf::loadView('aceptacion', compact('registros'))
-            ->setPaper('letter', 'landscape');
+        $pdf = Pdf::loadView('aceptacion', [
+                'registros' => $registros,
+                'materia'=>$materia,
+                'grupo'=>$grupo
+        ])->setPaper('letter', 'landscape');
 
-        return $pdf->stream('reporte_aceptacion.pdf');
+        return $pdf->stream('reporte_'. $grupo.'_'. $materia. '_aceptacion.pdf');
     }
 
 

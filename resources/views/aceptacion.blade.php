@@ -6,13 +6,13 @@
     <title>Document</title>
     <style>
     @page {
-        margin: 190px 25px 70px 25px; /* top, right, bottom, left */
+        margin: 250px 25px 70px 25px; /* top, right, bottom, left */
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
     }
     header {
         position: fixed;
-        top: -172px;
+        top: -193px;
         left: 0;
         right: 0;
         text-align: center;
@@ -24,6 +24,13 @@
         padding: 0;                  /* sin espacio interno */
         margin: 0;
     }
+
+    td.campo
+    {
+        border-bottom: 1px solid #000;     
+    
+    }
+
 
     table.borde, table.borde tr, table.borde tr td,table.borde tr th
     {
@@ -68,28 +75,32 @@
 <br><br>
 <table width="100%" border="1" cellpading="0" cellspacing="0" >
     <tr>
-        <td>FECHA:</td>
-        <td>__________________________________________________________</td>
-        <td>TURNO:</td>
-        <td>___________________________</td>
+        <td height="15px" width="15%">FECHA:</td>
+        <td width="35%"  class="campo"></td>
+        <td width="20%"></td>
+        <td width="10%">TURNO:</td>
+        <td width="20%"  class="campo"></td>
     </tr>
     <tr>
-        <td>UNIDAD ACADÉMICA:</td>
-        <td>__________________________________________________________</td>
+        <td height="15px">UNIDAD ACADÉMICA:</td>
+        <td  class="campo"></td>
+        <td></td>
         <td>GRUPO:</td>
-        <td>___________________________</td>
+        <td  class="campo">{{ $grupo }}</td>
     </tr>
     <tr>
-        <td>PLAN DE ESTUDIOS:</td>
-        <td>__________________________________________________________</td>
+        <td height="15px">PLAN DE ESTUDIOS:</td>
+        <td class="campo"></td>
+        <td></td>
         <td>SEMESTRE</td>
-        <td>___________________________</td>
+        <td  class="campo">{{ $materia }}</td>
     </tr>
     <tr>
-        <td>ASIGNATURA:</td>
-        <td>__________________________________________________________</td>
+        <td height="15px">ASIGNATURA:</td>
+        <td class="campo"></td>
+        <td></td>
         <td>DOCENTE</td>
-        <td>___________________________</td>
+        <td class="campo"></td>
     </tr>
 </table>
 <br><br>
@@ -116,7 +127,7 @@
             <th width="14%" >No. Control</th>
             <th width="25%">Nombre del alumno</h>
             <th width="14%">Calificación</th>
-            <h width="14%">Faltas</h>
+            <th width="14%">Faltas</th>
             <th width="14%">Firma del Estudiante</h>
             <th width="14%">Observaciones</th>
             
@@ -134,7 +145,7 @@
         @foreach ( $registros as $registro )
 
         <tr>
-            <th width="5%">{{$no++  }}</th>
+            <th height="20px" width="5%">{{$no++  }}</th>
             <td width="14%">&nbsp;{{ $registro->usuario->usuario }}</td>
             <td width="25%">&nbsp;{{ $registro->usuario->nombre }}</td>
             <td width="14%"></td>
