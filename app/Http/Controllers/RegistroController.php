@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registro;
+use App\Models\Usuario;
+
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use PHPUnit\Framework\MockObject\Stub\ReturnReference;
@@ -33,28 +35,45 @@ class RegistroController extends Controller
 
     }
 
-        public function generarReporteAceptacion(Request $request)
+   public function generarReporteAceptacion(Request $request)
     {
-        ini_set('max_execution_time', 600); // 300 segundos = 5 minutos
-        ini_set('memory_limit', '4096M'); // (opcional) aumenta el límite de memoria
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '4096M');
 
         $mes = $request->mes;
-        $anio =  $request->anio;
-        $dia =  $request->dia;
-        
-        $registros = Registro::with(['usuario' => function ($query) {
-            $query->withTrashed();
-        }])
-        ->filtrarFecha($dia, $mes, $anio)
-        ->get();
-        //return response()->json($registros);
-        
-        $pdf = Pdf::loadView('aceptacion', compact('registros'))->setPaper('letter', 'landscape');
+        $anio = $request->anio;
+        $dia = $request->dia;
+        $actividad = $request->actividad;
+        $grupo = $request->grupo;
+
+        // 1️⃣ Usuarios únicos ordenados por nombre
+        $usuarios = Usuario::withTrashed()
+            ->with(['registros' => function ($query) use ($dia, $mes, $anio, $actividad) {
+                $query->filtrarFecha($dia, $mes, $anio)
+                    ->where('actividad', $actividad);
+            }])
+            ->where('grupo', $grupo)
+            ->whereHas('registros', function ($query) use ($dia, $mes, $anio, $actividad) {
+                $query->filtrarFecha($dia, $mes, $anio)
+                    ->where('actividad', $actividad);
+            })
+            ->orderBy('nombre')
+            ->get();
+
+        // 2️⃣ Aplanar → agrupar por usuario_id → dejar un registro por usuario
+        $registros = $usuarios
+            ->flatMap(fn ($usuario) => $usuario->registros)
+            ->groupBy('usuario_id')
+            ->map(fn ($grupo) => $grupo->first())
+            ->values();
+
+        $pdf = Pdf::loadView('aceptacion', compact('registros'))
+            ->setPaper('letter', 'landscape');
+
         return $pdf->stream('reporte_aceptacion.pdf');
-        
-
-
     }
+
+
 
     public function generarReporteAccesos()
     {

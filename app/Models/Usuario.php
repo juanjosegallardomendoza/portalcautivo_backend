@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Dato;
+use App\Models\Registro;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,4 +21,10 @@ class Usuario extends Model
         return $this->hasMany(Dato::class);
 
     }
+    public function registros()
+    {
+        return $this->hasMany(Registro::class);
+
+    }
+
 }
