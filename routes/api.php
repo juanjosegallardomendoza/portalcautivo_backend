@@ -15,3 +15,5 @@ Route::post("login",[UsuarioController::class, "login"]);
 Route::get("/users",[UsuarioController::class, "index"]);
 
 Route::get("/users/id",[UsuarioController::class, "obtenerPropiedades"]);
+
+Route::get("/actividades",[ActividadController::class, "index"]);

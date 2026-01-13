@@ -32,3 +32,4 @@ Route::get("reporte",[RegistroController::class, "generarReporte"]);
 
 
 Route::get("accesos",[RegistroController::class, "generarReporteAccesos"]);
+Route::get("aceptacion",[RegistroController::class, "generarReporteAceptacion"]);

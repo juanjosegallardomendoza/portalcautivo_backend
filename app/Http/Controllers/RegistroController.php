@@ -33,6 +33,29 @@ class RegistroController extends Controller
 
     }
 
+        public function generarReporteAceptacion(Request $request)
+    {
+        ini_set('max_execution_time', 600); // 300 segundos = 5 minutos
+        ini_set('memory_limit', '4096M'); // (opcional) aumenta el límite de memoria
+
+        $mes = $request->mes;
+        $anio =  $request->anio;
+        $dia =  $request->dia;
+        
+        $registros = Registro::with(['usuario' => function ($query) {
+            $query->withTrashed();
+        }])
+        ->filtrarFecha($dia, $mes, $anio)
+        ->get();
+        //return response()->json($registros);
+        
+        $pdf = Pdf::loadView('aceptacion', compact('registros'))->setPaper('letter', 'landscape');
+        return $pdf->stream('reporte_aceptacion.pdf');
+        
+
+
+    }
+
     public function generarReporteAccesos()
     {
         $datos = Registro::selectRaw('
@@ -50,6 +73,7 @@ class RegistroController extends Controller
         $pdf = Pdf::loadView('accesos', compact('datos'))->setPaper('letter', 'portrait');
         return $pdf->stream('reporte_usuarios.pdf');
     }
+
 
     public function me(Request $request)
     {
