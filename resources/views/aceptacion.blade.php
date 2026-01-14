@@ -76,31 +76,31 @@
 <table width="100%" border="1" cellpading="0" cellspacing="0" >
     <tr>
         <td height="15px" width="15%">FECHA:</td>
-        <td width="35%"  class="campo"></td>
+        <td width="35%"  class="campo">{{ $dia."-". $mes."-".$anio  }}</td>
         <td width="20%"></td>
         <td width="10%">TURNO:</td>
-        <td width="20%"  class="campo"></td>
+        <td width="20%"  class="campo">MATUTINO</td>
     </tr>
     <tr>
         <td height="15px">UNIDAD ACADÉMICA:</td>
-        <td  class="campo"></td>
+        <td  class="campo">PÉNJAMO</td>
         <td></td>
         <td>GRUPO:</td>
-        <td  class="campo">{{ $grupo }}</td>
+        <td  class="campo">{{ $grupo["grupo"] }}</td>
     </tr>
     <tr>
         <td height="15px">PLAN DE ESTUDIOS:</td>
-        <td class="campo"></td>
+        <td class="campo">{{ $grupo["especialidad"] }}</td>
         <td></td>
         <td>SEMESTRE</td>
-        <td  class="campo">{{ $materia }}</td>
+        <td  class="campo">{{ $grupo["semestre"] }}</td>
     </tr>
     <tr>
         <td height="15px">ASIGNATURA:</td>
-        <td class="campo"></td>
+        <td class="campo">{{ $materia }}</td>
         <td></td>
         <td>DOCENTE</td>
-        <td class="campo"></td>
+        <td class="campo">{{ $profesor }}</td>
     </tr>
 </table>
 <br><br>

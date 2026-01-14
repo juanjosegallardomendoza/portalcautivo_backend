@@ -40,12 +40,29 @@ class RegistroController extends Controller
         ini_set('max_execution_time', 600);
         ini_set('memory_limit', '4096M');
 
+        $grupos= [
+            2801=>[
+                "especialidad"=>"Produccion industrial de los alimentos",
+                "semestre"=>"5",
+                "grupo"=>"2801",
+                "generacion"=>"2023-2026"
+            ],
+
+            3005=>[
+                "especialidad"=>"Produccion industrial de los alimentos",
+                "semestre"=>"5",
+                "grupo"=>"2801",
+                "generacion"=>"2023-2026"
+            ],
+        ];
+
         $mes = $request->mes;
         $anio = $request->anio;
         $dia = $request->dia;
         $actividad = $request->actividad;
         $grupo = $request->grupo;
-    
+        $documento = $request->documento;
+        $profesor = $request->profesor;
         $arr_actividad = explode("-",$actividad);
 
         $materia = $arr_actividad[1];
@@ -70,11 +87,17 @@ class RegistroController extends Controller
             ->map(fn ($grupo) => $grupo->first())
             ->values();
 
-        $pdf = Pdf::loadView('aceptacion', [
+        $pdf = Pdf::loadView($documento, [
                 'registros' => $registros,
                 'materia'=>$materia,
-                'grupo'=>$grupo
-        ])->setPaper('letter', 'landscape');
+                'grupo'=>$grupos[$grupo],
+                'mes'=>$mes,
+                'dia'=>$dia,
+                'anio'=>$anio,
+                'profesor'=>$profesor
+                
+
+        ])->setPaper('letter', $documento=='aceptacion'?'landscape':'portrait');
 
         return $pdf->stream('reporte_'. $grupo.'_'. $materia. '_aceptacion.pdf');
     }
