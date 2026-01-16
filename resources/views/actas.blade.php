@@ -35,7 +35,7 @@
     <select name="actividad" id="actividad"></select>
     
 
-    @php($grupos=[2801 ])
+    @php($grupos=[2801,2802,2803,2804,2805,2806,2807,2901,2902,2903,2904,2905,2906,3001,3002,3003,3004,3005,3006 ])
     
     <br>
     <br>
@@ -50,7 +50,28 @@
     <br>
     <br>
     <label >Profesor</label>
-        @php($profesores=["JOSE LUIS LUEVANOS BARRAGAN"])
+        @php($profesores = [
+    "Angélica Gutiérrez Morales",
+    "Blanca Rosa Troncoso Domínguez",
+    "Cristina Guerrero Rodríguez",
+    "David Zaragoza Torres",
+    "Héctor Mejía Martínez",
+    "Hortensia Espitia Rodríguez",
+    "Jaime Hernández Calderón",
+    "José Francisco González Alvarado",
+    "José Luis Luévanos Barragán",
+    "Julia Elena Núñez Soto",
+    "Luis Miguel Orozco Guerrero",
+    "Reynaldo Negrete Soto",
+    "Octavio Ramírez Medel",
+    "Roberto Baltazar Vázquez",
+    "Salvador Cabrera Vázquez",
+    "Víctor Manuel Zapién Piceno",
+    "Jahaziel Cano Cendejas",
+    "Jhony Walther Salinas Montejano",
+    "Fátima Livier Rodríguez Guerrero",
+    "Yadira Madrigal Rosales"
+])
     <select name="profesor" >
         <option value=""></option>
 

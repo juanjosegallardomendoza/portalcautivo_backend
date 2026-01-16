@@ -9,6 +9,7 @@
         margin: 250px 25px 70px 25px; /* top, right, bottom, left */
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
+
     }
     header {
         position: fixed;
@@ -112,7 +113,7 @@
         <td width="12%" class="opcion">3er Parcial</td>
         <td width="12%" class="opcion">Examen Global</td>
         <td width="12%" class="opcion">Examen Extraordinario 1</td>
-        <td width="12%" class="opcion">Examen Extraordinario 2</td>
+        <td width="12%" class="opcion" style="background-color: lightgray;">Examen Extraordinario 2</td>
         <td width="12%" class="opcion">Curso de Regularización</td>
     </tr>
 </table>

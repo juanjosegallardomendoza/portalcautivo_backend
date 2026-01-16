@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
         margin: 25px 25px 70px 25px; /* top, right, bottom, left */
         font-size: 8px;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 11px;
+        font-size: 10px;
     }
 
     table,  tr,  td, th
@@ -100,16 +103,20 @@
     </tr>
 
     <tr>
-        <td height="25px"><b>Asignatura: </b></td>
-        <td>{{ $materia }}</td>
+        <td height="25px" ><b>Periodo Escolar:</b> </td>
+        <td>Agosto2025-Enero2026</td>
         <td></td>
         <td><b>Grupo:</b></td>
         <td>{{ $grupo["grupo"] }}</td>
     </tr>
 
     <tr>
-        <td height="25px" ><b>Periodo Escolar:</b> </td>
-        <td>Agosto2025-Enero2026</td>
+        <td height="25px"><b>Asignatura: </b></td>
+        <td> 
+
+        {{ $materia }}
+
+        </td>
         <td></td>
         <td><b>Periodo:</b> </td>
         <td>Semestre {{ $grupo["semestre"] }}</td>
@@ -148,10 +155,10 @@
         @foreach ( $registros as $registro )
 
         <tr style="border-bottom: solid #000 1px;">
-            <td height="25px" align="center" width="6%">{{$no++  }}</td>
+            <td height="22px" align="center" width="6%">{{$no++  }}</td>
             <td width="14%" align="center">{{ $registro->usuario->usuario }}</td>
             <td width="60%">{{ $registro->usuario->nombre }}</td>
-            <td width="10%" align="center">EX</td>
+            <td width="10%" align="center">EX2</td>
             <td style="border: solid #000 1px;" width="5%"></td>
             <td style="border: solid #000 1px;" width="5%"></td>
 
@@ -163,13 +170,14 @@
 
 
 </main>
+<br><br><br>
 <footer>
     <br><br>
     <table border="0" width="100%" >
         <tr>
             <td>
                 <div align="center" style="border-top: 1px solid #000; width: 100%; margin: 10px 0;">
-                    {{$profesor}}
+                    {{ mb_strtoupper($profesor, 'UTF-8') }}
 
                     <br><br>
                     <b>TITULAR DE LA <br>ASIGNATURA</b>
@@ -178,7 +186,7 @@
             </td>
             <td>
                 <div align="center" style="border-top: 1px solid #000; width: 100%; margin: 10px 0;">
-                    MAYRA ALEJANDRA PRIETO RODRIGUEZ
+                    MAYRA ALEJANDRA PRIETO GUTIERREZ
                     <br><br>
                     <b>DIRECTORA DEL PLANTEL</b><br>&nbsp;
 
