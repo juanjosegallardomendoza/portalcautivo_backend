@@ -112,9 +112,9 @@
         <td width="12%" class="opcion">2do Parcial</td>
         <td width="12%" class="opcion">3er Parcial</td>
         <td width="12%" class="opcion">Examen Global</td>
-        <td width="12%" class="opcion">Examen Extraordinario 1</td>
-        <td width="12%" class="opcion" style="background-color: lightgray;">Examen Extraordinario 2</td>
-        <td width="12%" class="opcion">Curso de Regularización</td>
+        <td width="12%" class="opcion" style="background-color: lightgray;">Examen Extraordinario 1</td>
+        <td width="12%" class="opcion" >Examen Extraordinario 2</td>
+        <td width="12%" class="opcion" >Curso de Regularización</td>
     </tr>
 </table>
 <div align="left">

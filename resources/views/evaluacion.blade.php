@@ -114,7 +114,7 @@
         <td height="25px"><b>Asignatura: </b></td>
         <td> 
 
-        {{ $materia }}
+        {{ $materia }} - [p7]
 
         </td>
         <td></td>
@@ -158,7 +158,7 @@
             <td height="22px" align="center" width="6%">{{$no++  }}</td>
             <td width="14%" align="center">{{ $registro->usuario->usuario }}</td>
             <td width="60%">{{ $registro->usuario->nombre }}</td>
-            <td width="10%" align="center">EX2</td>
+            <td width="10%" align="center">CR</td>
             <td style="border: solid #000 1px;" width="5%"></td>
             <td style="border: solid #000 1px;" width="5%"></td>
 

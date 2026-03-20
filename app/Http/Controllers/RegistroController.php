@@ -133,42 +133,42 @@ class RegistroController extends Controller
             3001=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1",
+                "grupo"=>"2520M1",
                 "generacion"=>"2025-2028"
             ],
 
             3002=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1B",
+                "grupo"=>"2520M1B",
                 "generacion"=>"2025-2028"
             ],
 
             3003=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1C",
+                "grupo"=>"2520M1C",
                 "generacion"=>"2025-2028"
             ],
 
             3004=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1D",
+                "grupo"=>"2520M1D",
                 "generacion"=>"2025-2028"
             ],
 
             3005=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1E",
+                "grupo"=>"2520M1E",
                 "generacion"=>"2025-2028"
             ],
 
             3006=>[
                 "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
                 "semestre"=>"1",
-                "grupo"=>"02020252008-2520M1F",
+                "grupo"=>"2520M1F",
                 "generacion"=>"2025-2028"
             ],
 
@@ -281,7 +281,7 @@ class RegistroController extends Controller
               //  return response()->json($registro->actividad);
         if($request->url )
         {
-            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones")
+            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones" &&  $request->url!="bebras")
                 return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
