@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registra tus actividades de servicio social</title>
+  <title>Ingresa a la prueba RIMA</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -46,95 +46,51 @@
         <div class="card p-5">
           <div class="text-center mb-4">
             <h1 class="mb-2">{{ $registro->usuario->nombre }}</h1>
-            <h2>Sube tus activiades de servicio social</h2>
+            <h2>Ingresa a la prueba RIMA</h2>
           </div>
 
           <ol class="fs-5 ps-4">
             <li>
               Ingresa a:
-              <a href="https://escuelas.superateconfundacionbbva.mx/registro"
+              <a href="https://igestorservicios.seg.guanajuato.gob.mx/seguimiento"
                  onclick="abrirPortalEstudiantil(event)">
-                 Portal estudiantil
+                 Prueba RIMA
               </a>
             </li>
 
             <li>
-              Copia numero de control
-              <button onclick="copiar('{{ $registro->usuario->usuario }}')" class="btn btn-sm btn-primary">
-                Copiar Nombre de Usuario
+              Haz click en <b>"ingresa con cuenta institucional"</b>
+            </li>
+
+            <li>
+              Copia la cuenta
+              <button onclick="copiar('{{ $registro->usuario->datos['usuario_rima']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+                Copiar Cuenta
               </button>
-              y pégalo donde dice <b>“Número de control”</b>.
+              y pégalo donde dice <b>“Cuenta”</b>.
             </li>
 
             
             <li>
               Copia la contrseña:
-              <button onclick="copiar('{{ $registro->usuario->password }}')" class="btn btn-sm btn-primary">
+              <button onclick="copiar('{{ $registro->usuario->datos['password_rima']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
                 Copiar Contraseña
               </button>
               y pégalo donde dice <b>“Contraseña”</b>.
             </li>
-            <li>
-              Haz click en <b>"No soy un robot"</b> y después en <b>"iniciar sesión"</b>
-            </li>
-            <li>
-              Ingresa en la sección <b>"Servicio social"</b>, después haz click <b>Solicitud de servicio social.</b>
-            </li>
-            <li>
-  
-              Ingresa en <b>seguimiento.</b> ubicado en el renglón naranja que tiene tu nombre, si no aparece el boton localizalo los icono  tiene 3 puntos 
-            </li>
             
             <li>
-              Haz click en <b>Subir actividades</b> para el Informe bimestral 1
-            </li>
-
-            <li>
-                Copia tu actividad 
-                
-                <button   onclick="copiar(this.dataset.texto)" data-texto="{{ $registro->usuario->datos['servicio_actividad1']['valor'] ?? '' }}"  class="btn btn-sm btn-primary">
-                    Copiar actividad primer informe
-              </button>
+              Haz click en <b>"Validar CURP"</b>
             </li>
 
              <li>
-              Copia total de horas para este infrome:
-              <button onclick="copiar('160')" class="btn btn-sm btn-primary">
-                Copiar horas
-              </button>
-              y pégalo donde dice <b>“Total de horas para este informe”</b>.
+              Una vez terminada la evaluacion dar click en <b>"GUARDAR"</b>
             </li>
-
+            
+            
             <li>
-              Dar click en boton <b>“Guardar”</b>.
+             Para terminar da click en el icono azul donde se muestra la foto de usuario y dar click en<b>"CERRAR SESIÓN"</b>
             </li>
-
-
-            <li>
-              Haz click en <b>Subir actividades</b> para el Informe bimestral 2
-            </li>
-
-            <li>
-                Copia tu actividad 
-
-                
-                <button   onclick="copiar(this.dataset.texto)" data-texto="{{ $registro->usuario->datos['servicio_actividad2']['valor'] ?? '' }}"  class="btn btn-sm btn-primary">
-                    Copiar actividad segundo informe
-              </button>
-            </li>
-
-             <li>
-              Copia total de horas para este infrome:
-              <button onclick="copiar('160')" class="btn btn-sm btn-primary">
-                Copiar horas
-              </button>
-              y pégalo donde dice <b>“Total de horas para este informe”</b>.
-            </li>
-
-            <li>
-              Dar click en boton <b>“Guardar”</b>.
-            </li>
-
             
           </ol>
         </div>
@@ -190,7 +146,7 @@
     let portalEstudiantil = null;
     function abrirPortalEstudiantil(e) {
       e.preventDefault();
-      const url = 'https://sae.cecyteg.edu.mx:4046/PortalAlumno/Account/Login';
+      const url = 'https://igestorservicios.seg.guanajuato.gob.mx/seguimiento';
       if (!portalEstudiantil || portalEstudiantil.closed) {
         portalEstudiantil = window.open(url, 'superateBBVA');
       } else {

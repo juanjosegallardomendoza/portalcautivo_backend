@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registra tus actividades de servicio social</title>
+  <title>Crea tu cuenta BBVA Supérate</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -63,7 +63,7 @@
               <button onclick="copiar('{{ $registro->usuario->usuario }}')" class="btn btn-sm btn-primary">
                 Copiar Nombre de Usuario
               </button>
-              y pégalo donde dice <b>“Número de control”</b>.
+              y pégalo donde dice <b>“Escribe tu nombre de usuario”</b>.
             </li>
 
             
@@ -74,32 +74,29 @@
               </button>
               y pégalo donde dice <b>“Contraseña”</b>.
             </li>
+
             <li>
-              Haz click en <b>"No soy un robot"</b> y después en <b>"iniciar sesión"</b>
+              Ingresa en Servicio social ,despues <b>Solicitud de servicio social.</b>
             </li>
+
             <li>
-              Ingresa en la sección <b>"Servicio social"</b>, después haz click <b>Solicitud de servicio social.</b>
-            </li>
-            <li>
-  
-              Ingresa en <b>seguimiento.</b> ubicado en el renglón naranja que tiene tu nombre, si no aparece el boton localizalo los icono  tiene 3 puntos 
+              Ingresa en <b>seguimiento.</b>
             </li>
             
             <li>
-              Haz click en <b>Subir actividades</b> para el Informe bimestral 1
+              Ingresa en <b>informe bimestral</b> al cual te corresponda
             </li>
 
             <li>
                 Copia tu actividad 
-                
-                <button   onclick="copiar(this.dataset.texto)" data-texto="{{ $registro->usuario->datos['servicio_actividad1']['valor'] ?? '' }}"  class="btn btn-sm btn-primary">
-                    Copiar actividad primer informe
+                <button onclick="copiar('{{ $registro->usuario->datos['actividad']['valor'] ?? '' }}')" class="btn btn-sm btn-primary">
+                    Copiar actividad
               </button>
             </li>
 
              <li>
               Copia total de horas para este infrome:
-              <button onclick="copiar('160')" class="btn btn-sm btn-primary">
+              <button onclick="copiar('180')" class="btn btn-sm btn-primary">
                 Copiar horas
               </button>
               y pégalo donde dice <b>“Total de horas para este informe”</b>.
@@ -109,31 +106,6 @@
               Dar click en boton <b>“Guardar”</b>.
             </li>
 
-
-            <li>
-              Haz click en <b>Subir actividades</b> para el Informe bimestral 2
-            </li>
-
-            <li>
-                Copia tu actividad 
-
-                
-                <button   onclick="copiar(this.dataset.texto)" data-texto="{{ $registro->usuario->datos['servicio_actividad2']['valor'] ?? '' }}"  class="btn btn-sm btn-primary">
-                    Copiar actividad segundo informe
-              </button>
-            </li>
-
-             <li>
-              Copia total de horas para este infrome:
-              <button onclick="copiar('160')" class="btn btn-sm btn-primary">
-                Copiar horas
-              </button>
-              y pégalo donde dice <b>“Total de horas para este informe”</b>.
-            </li>
-
-            <li>
-              Dar click en boton <b>“Guardar”</b>.
-            </li>
 
             
           </ol>
@@ -144,49 +116,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-  function copiar(texto) {
-      if (!texto) {
-        alert("No hay texto para copiar.");
-        return;
-      }
-
-      // Convierte \n literales en saltos reales
-      texto = texto.replace(/\\n/g, '\n');
-
-      // Opcional: limpia espacios repetidos
-      texto = texto.trim();
-
+    function copiar(texto) {
+      if (!texto) return alert("No hay texto para copiar.");
       if (!navigator.clipboard) {
         const textarea = document.createElement("textarea");
-
         textarea.value = texto;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-
         document.body.appendChild(textarea);
-
-        textarea.focus();
         textarea.select();
-
-        try {
-          document.execCommand("copy");
-          console.log("Texto copiado");
-        } catch (err) {
-          console.error("Error al copiar:", err);
-        }
-
+        document.execCommand("copy");
         document.body.removeChild(textarea);
-
       } else {
         navigator.clipboard.writeText(texto)
-          .then(() => {
-            console.log("Texto copiado");
-          })
-          .catch(err => {
-            console.error("Error al copiar:", err);
-          });
+          .then(() => console.log("Texto copiado"))
+          .catch(err => console.error("Error al copiar:", err));
       }
     }
+
     let portalEstudiantil = null;
     function abrirPortalEstudiantil(e) {
       e.preventDefault();

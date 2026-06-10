@@ -12,6 +12,8 @@ Route::get('/', function () {
 Route::get('/logout', [UsuarioController::class, "logout"]);
 
 Route::get('/me', [RegistroController::class, "me"]);
+
+
 Route::get('/correo', [RegistroController::class, "correo"]);
 
 Route::get('/test', function () {
@@ -30,7 +32,5 @@ Route::get('/busqueda', function () {
 
 Route::get("reporte",[RegistroController::class, "generarReporte"]);
 Route::get("accesos",[RegistroController::class, "generarReporteAccesos"]);
-
 Route::get("aceptacion",[RegistroController::class, "generarReporteAceptacion"]);
-
 Route::view("actas", "actas");
