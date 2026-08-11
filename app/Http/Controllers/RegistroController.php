@@ -43,132 +43,132 @@ class RegistroController extends Controller
         $grupos= [
             2801=>[
                 "especialidad"=>"352100002-16 - Producción Industrial de Alimentos-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320PIDM5A",
                 "generacion"=>"2023-2026"
             ],
             2802=>[
                 "especialidad"=>"352100002-16 - Producción Industrial de Alimentos-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320PIDM5B",
                 "generacion"=>"2023-2026"
             ],
             2803=>[
                 "especialidad"=>"352100002-16 - Producción Industrial de Alimentos-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320PIDM5C",
                 "generacion"=>"2023-2026"
             ],
 
             2804=>[
                 "especialidad"=>"351100002-16-Mantenimiento Industrial-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320MINM5D",
                 "generacion"=>"2023-2026"
             ],
             
             2805=>[
                 "especialidad"=>"3062300001-17-Soporte y Mantenimiento de Equipo de Cómputo-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320SMECM5E",
                 "generacion"=>"2023-2026"
             ],
 
             2806=>[
                 "especialidad"=>"3062300001-17-Soporte y Mantenimiento de Equipo de Cómputo-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320SMECM5F",
                 "generacion"=>"2023-2026"
             ],
 
             2807=>[
                 "especialidad"=>"3062300001-17-Soporte y Mantenimiento de Equipo de Cómputo-23",
-                "semestre"=>"5",
+                "semestre"=>"6",
                 "grupo"=>"2320SMECM5G",
                 "generacion"=>"2023-2026"
             ],
 
             2901=>[
                 "especialidad"=>"3072100005-23-Producción Industrial de Alimentos-24",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420PIDM3A",
                 "generacion"=>"2024-2027"
             ],
 
             2902=>[
                 "especialidad"=>"3072100005-23-Producción Industrial de Alimentos-24",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420PIDM3B",
                 "generacion"=>"2024-2027"
             ],
 
             2903=>[
                 "especialidad"=>"3071100006-23-Mantenimiento Industrial-24",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420MINM3C",
                 "generacion"=>"2024-2027"
             ],
 
             2904=>[
                 "especialidad"=>"3071100006-23-Mantenimiento Industrial-24",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420MINM3D",
                 "generacion"=>"2024-2027"
             ],
 
             2905=>[
                 "especialidad"=>"3062300001-17-Soporte y Mantenimiento de Equipo de Cómputo-23",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420SMECM3E",
                 "generacion"=>"2024-2027"
             ],
 
             2906=>[
                 "especialidad"=>"3062300001-17-Soporte y Mantenimiento de Equipo de Cómputo-23",
-                "semestre"=>"3",
+                "semestre"=>"4",
                 "grupo"=>"2420SMECM3F",
                 "generacion"=>"2024-2027"
             ],
 
             3001=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1",
+                "especialidad"=>"Producción Industrial de Alimentos - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PIAM2A",
                 "generacion"=>"2025-2028"
             ],
 
             3002=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1B",
+                "especialidad"=>"Producción Industrial de Alimentos - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PIAM2B",
                 "generacion"=>"2025-2028"
             ],
 
             3003=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1C",
+                "especialidad"=>"Producción Industrial de Alimentos - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PIAM2C",
                 "generacion"=>"2025-2028"
             ],
 
             3004=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1D",
+                "especialidad"=>"Programación - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PROGM2D",
                 "generacion"=>"2025-2028"
             ],
 
             3005=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1E",
+                "especialidad"=>"Programación - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PROGM2E",
                 "generacion"=>"2025-2028"
             ],
 
             3006=>[
-                "especialidad"=>"MCCEMS-1-C. Técnica. MCCEMS-2024",
-                "semestre"=>"1",
-                "grupo"=>"2520M1F",
+                "especialidad"=>"Programación - 25 Matutino",
+                "semestre"=>"2",
+                "grupo"=>"2520PROGM2F",
                 "generacion"=>"2025-2028"
             ],
 
@@ -216,7 +216,7 @@ class RegistroController extends Controller
                 'profesor'=>$profesor
                 
 
-        ])->setPaper('letter', $documento=='aceptacion'?'landscape':'portrait');
+        ])->setPaper('letter', 'portrait');
 
         return $pdf->stream('reporte_'. $grupo.'_'. $materia. '_aceptacion.pdf');
     }
@@ -269,6 +269,39 @@ class RegistroController extends Controller
 
             $registro->actividad = $request->url;
         }
+
+        if(!$registro)
+        {
+            return view("nouser");
+        }
+        
+        $registro->usuario->datos = $registro->usuario->datos->keyBy('propiedad')->toArray();
+
+              //  return response()->json($registro->actividad);
+        if($request->url )
+        {
+            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones" &&  $request->url!="bebras")
+                return view("nouser");
+            return view($request->url, ['registro' => $registro]);
+        }
+     
+        
+        return view("me", ['registro' => $registro]);
+    }
+
+
+    public function abirActividad(Request $request)
+    {
+        $now = Carbon::now();
+      
+        
+        $registro = Registro::where('ip', $request->ip())
+        ->where('ended_at', '>', $now)
+        ->where('created_at', '<', $now)
+        ->with(["usuario.datos"])
+        ->orderBy("created_at","DESC")
+        ->first();
+
 
         if(!$registro)
         {

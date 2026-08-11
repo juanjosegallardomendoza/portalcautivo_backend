@@ -104,7 +104,7 @@
 
     <tr>
         <td height="25px" ><b>Periodo Escolar:</b> </td>
-        <td>Agosto2025-Enero2026</td>
+        <td>Febrero 2026 - Julio 2026</td>
         <td></td>
         <td><b>Grupo:</b></td>
         <td>{{ $grupo["grupo"] }}</td>
@@ -131,7 +131,7 @@
             <td></td>
             <td></td>
 
-            <td colspan="2" style="border: solid #000 1px;" align="center">Examen</td>
+            <td colspan="2" style="border: solid #000 1px;" align="center">Extraordinario 2</td>
         </tr>
         <tr class="cabecera">
             <th width="6%">#</h>

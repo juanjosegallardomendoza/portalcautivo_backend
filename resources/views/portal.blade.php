@@ -112,7 +112,7 @@
     <div class="oc">
       <div class="ic">
         <form action="%%AUTH_POST_URL%%" method="post" id="formulario">
-          <input type="hidden" name="%%REDIRID%%" value="http://10.10.10.10/">
+          <input type="hidden" name="%%REDIRID%%" id="hf_url" value="http://10.10.10.10/">
           <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
           <input type="hidden"  name="%%USERNAMEID%%"  id="ft_un">
           <input name="%%PASSWORDID%%"  value="cecyteg" id="ft_pd" type="hidden">
@@ -182,6 +182,8 @@
     </div>
     
     <script>
+
+    var actividades = [];
     document.querySelector("form").addEventListener("submit", function (event) {
         event.preventDefault();
         
@@ -216,6 +218,14 @@
         }
         )
         .then(data => {
+
+            const actividad = document.getElementById("ft_actividad").value;
+            const item = actividades.find(x => x.nombre === actividad);
+            if(item && item.url !=null)
+            {
+              document.getElementById("hf_url").value = item ? item.url : "";
+            }
+            console.log(item);
 
             if(data.tipo == 'ADMINISTRATIVO')
             { 
@@ -261,15 +271,24 @@
       )
       .then(data => {
         let ft_actividad = document.getElementById("ft_actividad");
+
+        ft_actividad.addEventListener("change", (event)=>{
+          console.log(event.target.actividad);
+        });
+
+
         for(const item of data)
         {
           const opcion  = document.createElement("option");
           opcion.value  = item.nombre;
           opcion.innerHTML =item.nombre;
 
-          console.log(item);
           ft_actividad.append(opcion);
         }
+
+        actividades=data;
+
+        
       })
       .catch(error => {
         document.getElementById("mensaje").innerHTML=error;
@@ -278,6 +297,8 @@
     }
 
     cargarActividades();
+
+
 
 
     setInterval(()=>{

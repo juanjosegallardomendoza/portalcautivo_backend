@@ -8,7 +8,7 @@
 <body>
  <h1>Generar Actas</h1>
 
- <form action="http://localhost:8000/aceptacion" target="_blank" method="GET">
+ <form action="http://10.10.10.10:8000/aceptacion" target="_blank" method="GET">
     <label>Dia</label>
     <select name="dia">
         @for ($i=1;$i<=31;$i++)
