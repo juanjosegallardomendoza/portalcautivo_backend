@@ -127,10 +127,9 @@
           
           
           <div class="fer">
-            <button id="btn_enviar" >
-              <a href="http://10.10.10.10/">
-                Ir a 10.10.10.10
-              </a>
+            <button id="btn_enviar"  onclick="continuar()">
+             
+                Continuar
               
             </button>
           </div>
@@ -140,4 +139,45 @@
     </div>
     
   </body>
+  <script>
+
+    function continuar()
+    {
+      
+        btn_enviar.disabled = true;
+        fetch('http://10.10.10.10:8000/api/registro', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(async response => {
+            document.getElementById("btn_enviar").disabled = false;
+            const data = await response.json();
+
+            if (!response.ok) 
+            {
+                throw new Error(data.message || 'Error desconocido');
+            }
+            return data;
+        }
+        )
+        .then(data => {
+
+          if(data && data.url)
+          {
+            location.href=data.url;
+          }
+          else
+          {
+            location.href="http://10.10.10.10";
+          }
+
+        })
+        .catch(error => {
+          location.href="http://10.10.10.10";
+          
+        });
+    }
+ 
+  </script>
 </html> 

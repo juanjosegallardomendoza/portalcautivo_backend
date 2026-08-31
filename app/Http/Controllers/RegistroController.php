@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actividad;
 use Illuminate\Http\Request;
 use App\Models\Registro;
 use App\Models\Usuario;
@@ -287,6 +288,24 @@ class RegistroController extends Controller
      
         
         return view("me", ['registro' => $registro]);
+    }
+
+    public function registro(Request $request)
+    {
+        $now = Carbon::now();
+      
+        
+        $registro = Registro::where('ip', $request->ip())->with("usuario")
+        ->where('ended_at', '>', $now)
+        ->where('created_at', '<', $now)
+        ->with(["usuario.datos"])
+        ->orderBy("created_at","DESC")
+        ->first();
+
+
+        $actividad = Actividad::where("nombre", $registro->actividad)->first();
+        $registro["url"]=$actividad->url?? "";
+        return $registro;
     }
 
 

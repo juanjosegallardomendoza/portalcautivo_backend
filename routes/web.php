@@ -13,6 +13,9 @@ Route::get('/logout', [UsuarioController::class, "logout"]);
 
 Route::get('/me', [RegistroController::class, "me"]);
 
+Route::get('/ok', function () {
+    return view('bienvenido');
+});
 
 Route::get('/correo', [RegistroController::class, "correo"]);
 
