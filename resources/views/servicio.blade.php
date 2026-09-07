@@ -52,7 +52,7 @@
           <ol class="fs-5 ps-4">
             <li>
               Ingresa a:
-              <a href="https://escuelas.superateconfundacionbbva.mx/registro"
+              <a href="https://sae.cecyteg.edu.mx:4046/PortalAlumno/Account/Login"
                  onclick="abrirPortalEstudiantil(event)">
                  Portal estudiantil
               </a>
