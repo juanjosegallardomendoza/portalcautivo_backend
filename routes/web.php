@@ -23,6 +23,10 @@ Route::get('/test', function () {
     return view('portal');
 });
 
+Route::get('/actividades', function () {
+    return view('actividades');
+});
+
 Route::get('/success', function () {
    [UsuarioController::class, "logout"];
 });

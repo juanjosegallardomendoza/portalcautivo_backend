@@ -23,3 +23,6 @@ Route::get("/actividades",[ActividadController::class, "index"]);
 Route::get("/prestamos", [PrestamoController::class, "index"]);
 
 Route::get("/registro", [RegistroController::class, "registro"]);
+
+
+Route::post('/actividades', [ActividadController::class, 'store']);
