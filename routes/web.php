@@ -34,6 +34,9 @@ Route::get('/busqueda', function () {
 
 
 Route::get("reporte",[RegistroController::class, "generarReporte"]);
+Route::get("practicas/versiones/c",[RegistroController::class, "generarReporte"]);
+Route::get("practicas/versiones/d",[RegistroController::class, "generarReporteD"]);
+
 Route::get("accesos",[RegistroController::class, "generarReporteAccesos"]);
 Route::get("aceptacion",[RegistroController::class, "generarReporteAceptacion"]);
 Route::view("actas", "actas");

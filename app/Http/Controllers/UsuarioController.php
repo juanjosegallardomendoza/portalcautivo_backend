@@ -64,6 +64,12 @@ class UsuarioController extends Controller
             $registro->ip = request()->ip();
             $registro->duracion =  $duraciones[$request->duracion];
             $registro->actividad =  $request->actividad;
+            if (filter_var($request->actividad, FILTER_VALIDATE_INT) !== false) 
+            {
+                $registro->actividad_id = $request->actividad;
+            }
+                    
+            
             $registro->save();
             return response()->json($usuario);
         }

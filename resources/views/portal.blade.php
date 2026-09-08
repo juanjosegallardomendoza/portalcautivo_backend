@@ -280,7 +280,7 @@
         for(const item of data)
         {
           const opcion  = document.createElement("option");
-          opcion.value  = item.nombre;
+          opcion.value  = item.id;
           opcion.innerHTML =item.nombre;
 
           ft_actividad.append(opcion);
