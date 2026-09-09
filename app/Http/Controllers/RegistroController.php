@@ -325,7 +325,7 @@ class RegistroController extends Controller
         ->first();
 
 
-        $actividad = Actividad::where("nombre", $registro->actividad)->first();
+        $actividad = $registro->actividad;
         $registro["url"]=$actividad->url?? "";
         return $registro;
     }
@@ -354,8 +354,6 @@ class RegistroController extends Controller
               //  return response()->json($registro->actividad);
         if($request->url )
         {
-            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones" &&  $request->url!="bebras")
-                return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
      

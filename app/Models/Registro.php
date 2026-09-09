@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Usuario;
+use App\Models\Actividad;
 use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +36,11 @@ class Registro extends Model
     public function usuario()
     {
      return $this->belongsTo(Usuario::class);
+    }
+
+    public function actividad()
+    {
+     return $this->belongsTo(Actividad::class);
     }
 
     protected static function booted()

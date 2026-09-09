@@ -251,6 +251,7 @@
                   <option value="PIA">PIA</option>
                   <option value="SyMEC">SyMEC</option>
                   <option value="Progrmación">Progrmación</option>
+                  <option value="Mantenimiento Industrial">Mantenimiento Industrial</option>
                 </select>
 
             </div>
