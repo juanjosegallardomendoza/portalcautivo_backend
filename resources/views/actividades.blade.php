@@ -1,3 +1,46 @@
+
+@php($grupos=[
+    "",
+    2901,2902,2903,2904,2905,2906,
+    3001,3002,3003,3004,3005,3006,
+    3101,3102,3103,3104,3105,3106,
+    "Varios"
+])
+
+@php($profesores=[
+    "",
+    "Angélica Gutiérrez Morales",
+    "Blanca Rosa Troncoso Domínguez",
+    "Cristina Guerrero Rodríguez",
+    "David Zaragoza Torres",
+    "Héctor Mejía Martínez",
+    "Hortensia Espitia Rodríguez",
+    "Jaime Hernández Calderón",
+    "José Francisco González Alvarado",
+    "José Luis Luévanos Barragán",
+    "Juan José Gallardo Mendoza",
+    "Julia Elena Núñez Soto",
+    "Norberto Zavala García",
+    "Octavio Ramírez Medel",
+    "Reynaldo Negrete Soto",
+    "Roberto Baltazar Vázquez",
+    "Salvador Cabrera Vázquez",
+    "Víctor Manuel Zapién Piceno",
+    "Jhony Walther Salinas Montejano",
+    "Fátima Livier Rodríguez Guerrero",
+    "Yadira Madrigal Rosales"
+])
+
+@php($asignaturas=[
+    "",
+    "Administrativa",
+    "Cultura digital I",
+    "Clasifica los elementos básicos de una red LAN",
+    "Diseña la red LAN",
+    "Emplea frameworks para el desarrollo de software",
+    "Aplica metodologías ágiles para el desarrollo de software"
+])
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <html>
@@ -8,7 +51,8 @@
 
     <style type="text/css">
 
-        html, body {
+        html,
+        body {
             height: 100%;
             padding: 0;
             margin: 0;
@@ -37,7 +81,9 @@
             margin: 10px auto;
         }
 
-        .fel, .fer, .fec {
+        .fel,
+        .fer,
+        .fec {
             text-align: center;
             width: 350px;
             margin: 0 auto;
@@ -80,7 +126,8 @@
             text-align: center;
         }
 
-        label, h2 {
+        label,
+        h2 {
             font-size: 16px;
         }
 
@@ -115,7 +162,8 @@
             cursor: not-allowed;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: white;
         }
 
@@ -126,7 +174,6 @@
     </title>
 
 </head>
-
 
 <body>
 
@@ -190,26 +237,34 @@
 
                 <select
                     id="ft_semestre"
+                    name="semestre"
                     required
                 >
 
-                    <option value="2">
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="1">
                         1°
                     </option>
+
                     <option value="2">
                         2°
                     </option>
 
-                    <option value="2">
+                    <option value="3">
                         3°
                     </option>
+
                     <option value="4">
                         4°
                     </option>
 
-                    <option value="2">
+                    <option value="5">
                         5°
                     </option>
+
                     <option value="6">
                         6°
                     </option>
@@ -227,13 +282,21 @@
                     Grupo:
                 </label>
 
-                <input
+                <select
                     id="ft_grupo"
-                    type="text"
-                    autocorrect="off"
-                    autocapitalize="off"
+                    name="grupo"
                     required
                 >
+
+                    @foreach ($grupos as $grupo)
+
+                        <option value="{{ $grupo }}">
+                            {{ $grupo }}
+                        </option>
+
+                    @endforeach
+
+                </select>
 
             </div>
 
@@ -247,11 +310,31 @@
                 </label>
 
                 <select
-                    id="ft_carrera">
-                  <option value="PIA">PIA</option>
-                  <option value="SyMEC">SyMEC</option>
-                  <option value="Progrmación">Progrmación</option>
-                  <option value="Mantenimiento Industrial">Mantenimiento Industrial</option>
+                    id="ft_carrera"
+                    name="carrera"
+                    required
+                >
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option value="PIA">
+                        PIA
+                    </option>
+
+                    <option value="SyMEC">
+                        SyMEC
+                    </option>
+
+                    <option value="Programación">
+                        Programación
+                    </option>
+
+                    <option value="Mantenimiento Industrial">
+                        Mantenimiento Industrial
+                    </option>
+
                 </select>
 
             </div>
@@ -265,13 +348,21 @@
                     Asignatura:
                 </label>
 
-                <input
+                <select
                     id="ft_asignatura"
-                    type="text"
-                    autocorrect="off"
-                    autocapitalize="off"
+                    name="asignatura"
                     required
                 >
+
+                    @foreach ($asignaturas as $asignatura)
+
+                        <option value="{{ $asignatura }}">
+                            {{ $asignatura }}
+                        </option>
+
+                    @endforeach
+
+                </select>
 
             </div>
 
@@ -286,6 +377,7 @@
 
                 <input
                     id="ft_actividad"
+                    name="actividad"
                     type="text"
                     autocorrect="off"
                     autocapitalize="off"
@@ -303,13 +395,21 @@
                     Profesor:
                 </label>
 
-                <input
+                <select
                     id="ft_profesor"
-                    type="text"
-                    autocorrect="off"
-                    autocapitalize="off"
+                    name="profesor"
                     required
                 >
+
+                    @foreach ($profesores as $profesor)
+
+                        <option value="{{ $profesor }}">
+                            {{ $profesor }}
+                        </option>
+
+                    @endforeach
+
+                </select>
 
             </div>
 
@@ -324,6 +424,7 @@
 
                 <input
                     id="ft_fecha"
+                    name="fecha"
                     type="date"
                     required
                 >
@@ -341,8 +442,13 @@
 
                 <select
                     id="ft_hora"
+                    name="hora"
                     required
                 >
+
+                    <option value="">
+                        Seleccione
+                    </option>
 
                     <option value="07:00">7:00</option>
                     <option value="07:50">7:50</option>
@@ -371,6 +477,7 @@
 
                 <select
                     id="ft_aula"
+                    name="aula"
                     required
                 >
 
@@ -397,6 +504,7 @@
 
                 <select
                     id="ft_duracion"
+                    name="duracion"
                     required
                 >
 
@@ -417,6 +525,25 @@
             </div>
 
 
+            <!-- OBSERVACIONES -->
+
+            <div class="fel">
+
+                <label for="ft_observaciones">
+                    Observaciones:
+                </label>
+
+                <input
+                    id="ft_observaciones"
+                    name="observaciones"
+                    type="text"
+                    autocorrect="off"
+                    autocapitalize="off"
+                >
+
+            </div>
+
+
             <!-- URL -->
 
             <div class="fel">
@@ -427,6 +554,7 @@
 
                 <input
                     id="ft_url"
+                    name="url"
                     type="url"
                     autocorrect="off"
                     autocapitalize="off"
@@ -520,6 +648,10 @@ document
             .getElementById("ft_url")
             .value;
 
+        let observaciones = document
+            .getElementById("ft_observaciones")
+            .value;
+
 
         /*
          * CAMBIAR ESTADO DEL FORMULARIO
@@ -554,7 +686,7 @@ document
                     grupo: grupo,
                     carrera: carrera,
                     asignatura: asignatura,
-
+                    observaciones: observaciones,
                     nombre: nombre,
                     profesor: profesor,
                     fecha: fecha,
@@ -585,7 +717,9 @@ document
                  * }
                  */
 
-                let mensaje = data.message || "No fue posible registrar la actividad.";
+                let mensaje =
+                    data.message ||
+                    "No fue posible registrar la actividad.";
 
 
                 /*
@@ -595,20 +729,25 @@ document
 
                 if (data.errors) {
 
-                    let primerCampo = Object.keys(data.errors)[0];
+                    let primerCampo =
+                        Object.keys(data.errors)[0];
 
                     if (
                         primerCampo &&
                         data.errors[primerCampo] &&
                         data.errors[primerCampo][0]
                     ) {
-                        mensaje = data.errors[primerCampo][0];
+
+                        mensaje =
+                            data.errors[primerCampo][0];
+
                     }
 
                 }
 
 
                 throw new Error(mensaje);
+
             }
 
 
@@ -618,7 +757,6 @@ document
 
 
         .then(function (data) {
-
 
             /*
              * REGISTRO CORRECTO
@@ -631,20 +769,46 @@ document
 
 
             /*
-             * SOLO LIMPIAMOS LOS DATOS
+             * LIMPIAR SOLAMENTE LOS CAMPOS
              * DE LA ACTIVIDAD.
-             *
-             * Conservamos:
-             * semestre
-             * grupo
-             * carrera
-             * asignatura
              */
 
             document
-                .getElementById("formulario")
-                .reset();
+                .getElementById("ft_actividad")
+                .value = "";
 
+            document
+                .getElementById("ft_profesor")
+                .selectedIndex = 0;
+
+            document
+                .getElementById("ft_fecha")
+                .value = "";
+
+            document
+                .getElementById("ft_hora")
+                .selectedIndex = 0;
+
+            document
+                .getElementById("ft_aula")
+                .selectedIndex = 0;
+
+            document
+                .getElementById("ft_duracion")
+                .selectedIndex = 0;
+
+            document
+                .getElementById("ft_observaciones")
+                .value = "";
+
+            document
+                .getElementById("ft_url")
+                .value = "";
+
+
+            /*
+             * HABILITAR BOTON
+             */
 
             document
                 .getElementById("btn_enviar")
@@ -652,8 +816,7 @@ document
 
 
             /*
-             * Dejamos el cursor en actividad
-             * para capturar la siguiente.
+             * CURSOR EN ACTIVIDAD
              */
 
             document
@@ -664,7 +827,6 @@ document
 
 
         .catch(function (error) {
-
 
             /*
              * ERROR
@@ -689,4 +851,3 @@ document
 </body>
 
 </html>
-

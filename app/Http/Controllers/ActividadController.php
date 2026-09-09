@@ -23,6 +23,7 @@ class ActividadController extends Controller
             'grupo'      => 'required|string|max:255',
             'carrera'    => 'required|string|max:255',
             'asignatura' => 'required|string|max:255',
+            'observaciones' => 'nullable|string|max:255',
 
             'nombre'     => 'required|string|max:255',
             'profesor'   => 'required|string|max:255',
@@ -57,7 +58,7 @@ class ActividadController extends Controller
             'grupo'         => $request->grupo,
             'carrera'       => $request->carrera,
             'asignatura'    => $request->asignatura,
-
+            'observaciones' => $request->observaciones,
             'fecha_entrada' => $fechaEntrada,
             'duracion'      => $request->duracion,
             'equipo'        => $request->aula,

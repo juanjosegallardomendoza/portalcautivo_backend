@@ -299,12 +299,9 @@ class RegistroController extends Controller
         }
         
         $registro->usuario->datos = $registro->usuario->datos->keyBy('propiedad')->toArray();
-
-              //  return response()->json($registro->actividad);
+        
         if($request->url )
         {
-            if(  strtolower($registro->actividad) !=  strtolower($request->url) && $request->url!="correo" && $request->url!="calificaciones" &&  $request->url!="bebras")
-                return view("nouser");
             return view($request->url, ['registro' => $registro]);
         }
      
