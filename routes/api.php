@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PrestamoController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\ScriptController;
 use App\Models\Prestamo;
 
 Route::get('/user', function (Request $request) {
@@ -20,9 +21,13 @@ Route::get("/users/id",[UsuarioController::class, "obtenerPropiedades"]);
 
 Route::get("/actividades",[ActividadController::class, "index"]);
 
+
 Route::get("/prestamos", [PrestamoController::class, "index"]);
 
 Route::get("/registro", [RegistroController::class, "registro"]);
 
 
+
 Route::post('/actividades', [ActividadController::class, 'store']);
+
+Route::get("/scripts/{id}",[ScriptController::class, "show"]);
