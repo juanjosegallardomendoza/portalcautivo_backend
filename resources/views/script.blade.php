@@ -6,8 +6,9 @@ const busqueda = document.querySelector('#page-navbar li')?.innerText.trim();
 
 claves = {
     @foreach ( $claves as $clave )
-        '{{ $clave["codigo_materia"] }}' :{{ $clave["codigo_examen"] }} ,
+        '{{ $clave["codigo_materia"] }}' :'{{ $clave["codigo_examen"] }}',
     @endforeach
+
 }
 
 if (campo != undefined) {
